@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#header-img{
+    height:20%;
+    width:100%;
+    object-fit:cover;
+}
+
+#choice-1-container,
+#choice-2-container{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    line-height: 2;
+}
+
+#choice-1-header{
+    font-size:3rem;
+    font-weight:500;
+}
+
+#choice-1-section,
+#choice-2-section{
+    display:flex;
+    flex-direction: row;
+    font-size:2rem;
+    font-weight:500;
+}
+
+#choice-2-header{
+    font-size:3rem;
+    font-weight:500;
+}
+
+#result{
+    display:flex;
+    justify-content: center;
+    margin-top: 5%;
+}
