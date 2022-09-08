@@ -18,17 +18,8 @@ SO THAT I can plan accordingly
 * Thirstie: https://www.programmableweb.com/api/thirstie-unspecified-api
 * The Thirstie API provides data solutions for liquor brands
 
-* RapidAPI: https://rapidapi.com/blog/best-beer-wine-alcohol-api/
-
 * Spoonacular: https://spoonacular.com/food-api
 
-* Recipe API: https://suggestic.com/blog/recipe-api-ultimate-list 
-
-* Geekflare: https://geekflare.com/food-api-solutions/
-
-
-## WireFrame
-* Figma: https://www.figma.com/ 
 
 
 ## David's suggestion
