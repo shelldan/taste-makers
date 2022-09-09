@@ -9,7 +9,13 @@ SO THAT I can plan accordingly
 
 ## Acceptance Criteria 
 
+1 When homepage loads User have a choice of 4 protein options 
 
+2 When homepage loads User has a choice of style of cuisine
+
+3 When homepage loads User has a choice of desert options
+
+4 When 'Go/Make Recipe' button is clicked User is presented with recipe multiple options.
 
 ## Google Doc
 * Group Google Doc: https://docs.google.com/document/d/1P1UyIhpSrdy0Xtx6lIobXjCEwrd-sB5dYowq5JX9yfE/edit 
