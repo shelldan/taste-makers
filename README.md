@@ -15,10 +15,11 @@ SO THAT I can plan accordingly
 * Group Google Doc: https://docs.google.com/document/d/1P1UyIhpSrdy0Xtx6lIobXjCEwrd-sB5dYowq5JX9yfE/edit 
 
 ## API 
-* Thirstie: https://www.programmableweb.com/api/thirstie-unspecified-api
-* The Thirstie API provides data solutions for liquor brands
 
-* Spoonacular: https://spoonacular.com/food-api
+* Spoonacular: https://spoonacular.com/food-api 
+
+
+
 
 
 
