@@ -1,7 +1,3 @@
-let x = 5;
-let y = 10;
-let sum = (x + y);
-
 //Erica's Task - creating .fetch to spoonacular API
 
 //List of Parameters
