@@ -16,12 +16,9 @@ SO THAT I can plan accordingly
 
 ## API 
 
-* Spoonacular: https://spoonacular.com/food-api 
+* Spoonacular: https://spoonacular.com/food-api
 
-
-
-
-
+## WireFrame
 
 ## David's suggestion
 API Suggestions:
