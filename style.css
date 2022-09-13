@@ -6,14 +6,14 @@
 
 /* object-fit:cover; */
 
-#choice-1-container,
+/* #choice-1-container,
 #choice-2-container,
 #choice-3-container{}
 #header-image{
     height:30rem;
     width:100%;
     /* object-fit:cover; */
-}
+/* } */ */
 
 .page-1{
     display:flex;
