@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -8,26 +8,34 @@
 
 #choice-1-container,
 #choice-2-container,
-#choice-3-container{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    line-height: 2;
+#choice-3-container{}
+#header-image{
+    height:30rem;
+    width:100%;
+    /* object-fit:cover; */
 }
-#choice-1-header,
-#choice-2-header,
-#choice-3-header{
-    font-size:3rem;
-    font-weight:500;
-    /* text-align: center; */
-}
-#choice-1-section,
-#choice-2-section,
-#choice-3-section{
+
+.page-1{
     display:flex;
-    flex-direction: row;
-    font-size:2rem;
-    font-weight:500;
+    justify-content: space-around;
+}
+
+button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+
+.page-2{
+    display:flex;
+    flex-direction: column;
+    align-content: space-around;
+    align-items: center;
 }
 button{
     margin:1rem;
