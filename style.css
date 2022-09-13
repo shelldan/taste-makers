@@ -3,40 +3,32 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 #header-image{
     height:30rem;
     width:100%;
     /* object-fit:cover; */
 }
-#choice-1-container,
-#choice-2-container{
+
+.page-1{
     display:flex;
-    flex-direction:column;
-    align-items:center;
-    line-height: 2;
+    justify-content: space-around;
 }
-#choice-1-header{
-    font-size:3rem;
-    font-weight:500;
-    /* text-align: center; */
-}
-#choice-1-section,
-#choice-2-section{
+
+button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+
+.page-2{
     display:flex;
-    flex-direction: row;
-    font-size:2rem;
-    font-weight:500;
-}
-button{
-    margin:1rem;
-    padding:1rem;
-}
-#choice-2-header{
-    font-size:3rem;
-    font-weight:500;
-}
-#result{
-    display:flex;
-    justify-content: center;
-    margin-top: 5%;
+    flex-direction: column;
+    align-content: space-around;
+    align-items: center;
 }
