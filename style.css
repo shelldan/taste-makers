@@ -4,16 +4,12 @@
     box-sizing: border-box;
 }
 
-#choice-2-container,
-#choice-3-container{}
-
 #header-image{
     height:30rem;
     width:100%;
-    /* object-fit:cover; */
-/* } */ */
+}
 
-.page-1{
+.page-1 {
     display:flex;
     justify-content: space-around;
 }
