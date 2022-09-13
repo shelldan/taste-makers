@@ -1,195 +1,148 @@
-// //Spoonacular API documentation: https://spoonacular.com/food-api/docs
-// //Spoonacular Authentication: https://spoonacular.com/food-api/docs#Authentication
-// var page2Div = document.createElement('div')
-// var page3Div = document.createElement('div')
-// var page4Div = document.createElement('div')
+//Erica's Task - creating .fetch to spoonacular API
 
-// var page1Div = document.querySelector('.page-1')
+//Spoonacular API documentation: https://spoonacular.com/food-api/docs
+//Spoonacular Authentication: https://spoonacular.com/food-api/docs#Authentication
+var page2Div = document.createElement('div') //create dynamic div html element
+var page3Div = document.createElement('div') //create dynamic div html element
+var page4Div = document.createElement('div') //create dynamic div html element
 
-// var cuisineBtn = document.getElementById('cuisine')
-// var mainDiv = document.querySelector('main')
+var page1Div = document.querySelector('.page-1') //selecting DOM element 
 
-// var frenchStyle = document.getElementById('french')
-// var spoonApiKey = 'c95dcc6d89ab47a384f18b2f989d7286'
+var cuisineBtn = document.getElementById('cuisine') //selecting DOM element 
+var mainDiv = document.querySelector('main') //selecting DOM element 
 
-// var ids = [] //might need to use array to remove duplicate id
-// //var recipeInfoUrl = 'https://api.spoonacular.com/recipes/' + id +'/information'
+var frenchStyle = document.getElementById('french') //selecting DOM element 
+var spoonApiKey = 'c95dcc6d89ab47a384f18b2f989d7286' //key 
+
+var ids = [] //placeholder - might need to use array to remove duplicate id 
+
+//var recipeInfoUrl = 'https://api.spoonacular.com/recipes/' + id +'/information'
+
+//once the user click the 'Cuisine' button, it calls the following function 
+function page2handler (event){
+
+    page1Div.style.display = 'none' //hide page 1 
+
+    page2Div.setAttribute('class','page-2') // create page 2 
+
+    var french = document.createElement('button') //create DOM element (button)
+    var american = document.createElement('button') //create DOM element (button)
+    var german = document.createElement('button') //create DOM element (button)
+    var italian = document.createElement('button') //create DOM element (button)
+
+    mainDiv.appendChild(page2Div) //parent append child 
+    page2Div.appendChild(french) //parent append child 
+    page2Div.appendChild(american) //parent append child
+    page2Div.appendChild(german) //parent append child
+    page2Div.appendChild(italian) //parent append child
+
+    french.innerHTML = 'French' //assign innerHTML to button 
+    american.innerHTML = 'American' //assign innerHTML to button 
+    german.textContent = 'German' //assign innerHTML to button 
+    italian.textContent = 'Italian' //assign innerHTML to button 
+
+    console.log(event.target.textContent) //could remove it; used to check the button the user clicks
+
+    $("button").click(page3handler) // once the user click on any button, it will call page3handler function 
+  
+}
+
+//the function is handling the page3 
+function page3handler(event){
+
+    page2Div.style.display = 'none'; //hide page 1 
+
+    page3Div.setAttribute('class','page-3') // create page 3
 
 
+    console.log(event.target.textContent) // could remove it; used to check the button the user clicks 
 
-// function page2handler (event){
-
-//     page1Div.style.display = 'none'
-
-//     page2Div.setAttribute('class','page-2')
-
-//     var french = document.createElement('button')
-//     var american = document.createElement('button')
-//     var german = document.createElement('button')
-//     var italian = document.createElement('button')
-
-//     mainDiv.appendChild(page2Div)
-//     page2Div.appendChild(french)
-//     page2Div.appendChild(american)
-//     page2Div.appendChild(german)
-//     page2Div.appendChild(italian)
-
-//     french.innerHTML = 'French'
-//     american.innerHTML = 'American'
-//     german.textContent = 'German'
-//     italian.textContent = 'Italian'
-
-//     console.log(event.target.textContent) //cuisine
-
-//     $("button").click(page3handler) //how to get ID of button user just clicked? 
-//     //$("button").click(getRecipeName)
-// }
-
-
-// function page3handler(event){
-
-//     page2Div.style.display = 'none';
-
-//     page3Div.setAttribute('class','page-3')
-
-
-//     console.log(event.target.textContent) // French 
-
-//     //cuisineHeader.textContent = 'Bake Ratatouille' //for testing, will delete later 
-
-//     var cuisine = event.target.textContent
+    var cuisine = event.target.textContent // get the content from the button 
     
-//     var cuisineUrl = 'https://api.spoonacular.com/recipes/complexSearch?' +'&cuisine=' + cuisine + '&apiKey=' + spoonApiKey
+    var cuisineUrl = 'https://api.spoonacular.com/recipes/complexSearch?' +'&cuisine=' + cuisine + '&apiKey=' + spoonApiKey //api address 
     
-//     console.log(cuisineUrl)
+    console.log(cuisineUrl) // could remove it 
 
-//     function getRecipeName(){
-//         fetch(cuisineUrl)
-//         .then(function(response){
-//             return response.json()
-//         })
-//         .then(function(recipeName){
-//             console.log(recipeName)
+    //fetch request 
+    function getRecipeName(){
+        fetch(cuisineUrl)
+        .then(function(response){
+            return response.json()
+        })
+        .then(function(recipeName){
+            console.log(recipeName)
             
+            //the fetch request return 10 items per page, so I limited to 10 items/page 
+            for (var i=0; i<10; i++){ //limited to 10 per page, but why can't use i<recipeName.length? 
+                var cuisineHeader = document.createElement('h2') //create new element 
+                var cuisineImg = document.createElement('img') //create new element 
+                var cuisineRecipe = document.createElement('p') // create new element 
 
-//             for (var i=0; i<10; i++){ //limited to 10 per page, butwhy can't use i<recipeName.length? 
-//                 var cuisineHeader = document.createElement('h2')
-//                 var cuisineImg = document.createElement('img')
-//                 var cuisineRecipe = document.createElement('p') // not sure if we want to add here
+                cuisineHeader.textContent = recipeName.results[i].title //iterate through the 10 items 
+                cuisineImg.src=recipeName.results[i].image //iterate through the 10 items 
+                cuisineHeader.setAttribute('id',recipeName.results[i].id) //iterate through the 10 items 
 
-//                 cuisineHeader.textContent = recipeName.results[i].title
-//                 cuisineImg.src=recipeName.results[i].image
-//                 cuisineHeader.setAttribute('id',recipeName.results[i].id)
+                cuisineHeader.addEventListener('click',function(){ //once the user click on the header, it goes to page 4 
+                    console.log(this) 
+                    var id = this.getAttribute('id')
 
-//                 cuisineHeader.addEventListener('click',function(){
-//                     console.log(this)
-//                     var id = this.getAttribute('id')
+                    console.log(id)
+                    page4handler(id) //pass the id (variable) to page4handler 
+                })
 
-//                     console.log(id)
-//                     page4handler(id)
-//                 })
+                mainDiv.appendChild(page3Div) //parent append child 
+                page3Div.appendChild(cuisineHeader) //parent append child 
+                page3Div.appendChild(cuisineImg) //parent append child 
+                page3Div.appendChild(cuisineRecipe) //parent append child 
 
-//                 mainDiv.appendChild(page3Div)
-//                 page3Div.appendChild(cuisineHeader)
-//                 page3Div.appendChild(cuisineImg)
-//                 page3Div.appendChild(cuisineRecipe)
+            }
 
-//             }
-
-//            // cuisineHeader.addEventListener('click',page4handler)
+           // cuisineHeader.addEventListener('click',page4handler)
             
             
-//         })
-//     }
-//     getRecipeName()
-// }
+        })
+    }
+    getRecipeName() //call the getRecipeName function 
+}
 
+//the function is handling the page3 
+function page4handler(id){
+    page2Div.style.display= 'none'; //hide page 2
+    page3Div.style.display= 'none'; //hide page 3 
 
-// function page4handler(id){
-//     page2Div.style.display= 'none';
-//     page3Div.style.display= 'none';
+    page4Div.setAttribute('class','page-4') //create page 4 
 
-//     page4Div.setAttribute('class','page-4')
+    var cuisineHeader = document.createElement('h2') //create element 
+    var cuisineImg = document.createElement('img') //create element 
+    var cuisineRecipe = document.createElement('p') //create element 
 
-//     var cuisineHeader = document.createElement('h2')
-//     var cuisineImg = document.createElement('img')
-//     var cuisineRecipe = document.createElement('p')
+    mainDiv.appendChild(page4Div) // parent append child 
+    page4Div.appendChild(cuisineHeader) // parent append child 
+    page4Div.appendChild(cuisineImg) // parent append child 
+    page4Div.appendChild(cuisineRecipe) // parent append child 
 
-//     mainDiv.appendChild(page4Div)
-//     page4Div.appendChild(cuisineHeader)
-//     page4Div.appendChild(cuisineImg)
-//     page4Div.appendChild(cuisineRecipe)
+    //var id = localStorage.getItem('id')
 
-//     //var id = localStorage.getItem('id')
+    var recipeInfoUrl = 'https://api.spoonacular.com/recipes/' + id +'/information?' + '&apiKey=' + spoonApiKey //api 
 
-//     var recipeInfoUrl = 'https://api.spoonacular.com/recipes/' + id +'/information?' + '&apiKey=' + spoonApiKey
+    //fetch request 
+    fetch(recipeInfoUrl)
+    .then(function(response){
+        return response.json()
+    })
+    .then(function(recipeInfo){
+        //console.log(recipeInfo)
+        cuisineHeader.textContent = recipeInfo.title
+        cuisineImg.src=recipeInfo.image
+        cuisineRecipe.innerHTML=recipeInfo.summary
+    })
 
-//     fetch(recipeInfoUrl)
-//     .then(function(response){
-//         return response.json()
-// //List of Parameters
-// var cuisine;
-// var protein;
-// var dessert;
+}
 
-// //Spoonacular API Information
-// var spoonUrl = 'https://api.spoonacular.com/recipes/complexSearch?query=' + protein + '&cuisine=' + cuisine;
-// var spoonApiKey = 'bff7143ee08c4a6aa8d53b4a91fc839f'
-
-// //searchSpoon function fetches response from Spoonacular API
-// var searchSpoon = function () {
-//   fetch(spoonUrl)
-//     .then(function (response) {
-//       if (!response.ok) {
-//         throw response.json();
-//       }
-
-//       return response.json();
-//     })
-//     .then(function(recipeInfo){
-//         //console.log(recipeInfo)
-//         cuisineHeader.textContent = recipeInfo.title
-//         cuisineImg.src=recipeInfo.image
-//         cuisineRecipe.innerHTML=recipeInfo.summary
-//     })
-
-// }
-
-
-// cuisineBtn.addEventListener('click',page2handler)
+// once the user click the 'Cuisine' button, it goes to page2 
+cuisineBtn.addEventListener('click',page2handler)
 
 
 
 
 
-//     .then(function (response) {
-//       console.log('Response is good!');
-//       console.log(response);
-//     });
-
-
-// //Gets value of protein choice
-// var choiceOneSection = document.getElementById('choice-1-section');
-
-// choiceOneSection.addEventListener('click', function (event) {
-//   var proteinChoice = event.target; //the button clicked
-//   protein = proteinChoice.innerHTML; //the string value of button 
-//   console.log(protein);
-// });
-
-// // // Gets value for cuisine choice
-// // var choiceTwoSection = document.getElementById('choice-2-section');
-
-// // choiceTwoSection.addEventListener('click', function (event) {
-// //   var cuisineChoice = event.target;
-// //   cuisine = cuisineChoice.innerHTML;
-// //   console.log(cuisine);
-// // })
-
-// //Gets value of dessert choice
-// // var choiceThreeSection = document.getElementById('choice-3-section');
-// // choiceThreeSection.addEventListener('click', function (event) {
-// //   var dessertChoice = event.target;
-// //   dessert = dessertChoice.innerHTML;
-// //   console.log(dessert);
-// // })

@@ -4,8 +4,6 @@
     box-sizing: border-box;
 }
 
-/*not sure what this is v */
-#choice-1-container,
 #choice-2-container,
 #choice-3-container{}
 
@@ -13,7 +11,7 @@
     height:30rem;
     width:100%;
     /* object-fit:cover; */
-}
+/* } */ */
 
 .page-1{
     display:flex;
