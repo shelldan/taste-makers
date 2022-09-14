@@ -115,11 +115,13 @@ function page4handler(id) {
   var cuisineHeader = document.createElement("h2"); //create element
   var cuisineImg = document.createElement("img"); //create element
   var cuisineRecipe = document.createElement("p"); //create element
+  var cuisineVideo = document.createElement("div")
 
   mainDiv.appendChild(page4Div); // parent append child
   page4Div.appendChild(cuisineHeader); // parent append child
   page4Div.appendChild(cuisineImg); // parent append child
   page4Div.appendChild(cuisineRecipe); // parent append child
+  //page4Div.appendChild(cuisineVideo);
 
   //var id = localStorage.getItem('id')
 
@@ -136,12 +138,42 @@ function page4handler(id) {
       return response.json();
     })
     .then(function (recipeInfo) {
-      //console.log(recipeInfo)
+      console.log(recipeInfo)
       cuisineHeader.textContent = recipeInfo.title;
       cuisineImg.src = recipeInfo.image;
       cuisineRecipe.innerHTML = recipeInfo.summary;
+
+      var youTubeApiKey = 'AIzaSyCPVbJouFqqk56R4EteKzKMhY703BMSE_M'
+      var youTubeUrl = 'https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q='+ cuisineHeader.textContent + '&key=' + youTubeApiKey
+      
+      console.log(cuisineHeader.textContent)
+  
+      fetch(youTubeUrl)
+      .then(function(response){
+          return response.json()
+      })
+      .then(function(data){
+          console.log(data)
+          console.log(data.items[0].id.videoId)
+          var videoId = data.items[0].id.videoId
+          var obj ={
+              "video":{
+                  "value":"<iframe title='YouTube video player' type=\'text/html\' width='640' height='390' src='http://www.youtube.com/embed/" + videoId + "' frameborder='0' allowFullScreen></iframe>"
+              }
+          }
+      
+          console.log(obj.video.value)
+    //    document.write(obj.video.value)
+          cuisineVideo.innerHTML=obj.video.value
+          page4Div.appendChild(cuisineVideo)
+          
+  
+      })
     });
 }
+
+
+
 
 // once the user click the 'Cuisine' button, it goes to page2
 cuisineBtn.addEventListener("click", page2handler);
