@@ -120,12 +120,10 @@ function page4handler(id) {
 
   mainDiv.appendChild(page4Div); // parent append child
   page4Div.appendChild(cuisineHeader); // parent append child
-  page4Div.appendChild(favoriteBtn); // appends favorite button
+  page4Div.appendChild(favoriteBtn); // appends favorite button to the header
   page4Div.appendChild(cuisineImg); // parent append child
   page4Div.appendChild(cuisineRecipe); // parent append child
   //page4Div.appendChild(cuisineVideo);
-
-  //var id = localStorage.getItem('id')
 
   var recipeInfoUrl =
     "https://api.spoonacular.com/recipes/" +
@@ -173,6 +171,14 @@ function page4handler(id) {
 
         })
     });
+
+  //! When favorite button clicked --> save name of the recipe to local storage (recipe name, recipe name)
+  favoriteBtn.addEventListener('click', function () {
+    console.log('favorite button clicked!'); //working
+    var recipeFavorite = cuisineHeader.textContent;
+    console.log(recipeFavorite);
+    localStorage.setItem(recipeFavorite, recipeFavorite);
+  });
 }
 
 
