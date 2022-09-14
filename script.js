@@ -8,6 +8,7 @@ var page1Div = document.querySelector(".page-1"); //selecting DOM element
 
 var cuisineBtn = document.getElementById("cuisine"); //selecting DOM element
 var backBtn = document.getElementById("back");
+var homeBtn = document.getElementById("home");
 var mainDiv = document.querySelector("main"); //selecting DOM element
 
 var frenchStyle = document.getElementById("french"); //selecting DOM element
