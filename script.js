@@ -115,7 +115,7 @@ function page4handler(id) {
   var cuisineHeader = document.createElement("h2"); //create element
   var cuisineImg = document.createElement("img"); //create element
   var cuisineRecipe = document.createElement("p"); //create element
-  var cuisineVideo = document.createElement("div")
+  var cuisineVideo = document.createElement("div") //create element 
 
   mainDiv.appendChild(page4Div); // parent append child
   page4Div.appendChild(cuisineHeader); // parent append child
@@ -130,42 +130,43 @@ function page4handler(id) {
     id +
     "/information?" +
     "&apiKey=" +
-    spoonApiKey; //api
+    spoonApiKey; //spoonacular API
 
-  //fetch request
+  //fetch request for spoonacular API
   fetch(recipeInfoUrl)
     .then(function (response) {
       return response.json();
     })
     .then(function (recipeInfo) {
       console.log(recipeInfo)
-      cuisineHeader.textContent = recipeInfo.title;
-      cuisineImg.src = recipeInfo.image;
-      cuisineRecipe.innerHTML = recipeInfo.summary;
+      cuisineHeader.textContent = recipeInfo.title; //add textContent to the header, recipeInfo.title will return the name of the recipe 
+      cuisineImg.src = recipeInfo.image; //add image to the image HTML, recipeInfo.image will return the src link 
+      cuisineRecipe.innerHTML = recipeInfo.summary; // add innerHTML to the body, recipeInfo.summary will return the text summary of the recipe  
 
-      var youTubeApiKey = 'AIzaSyCPVbJouFqqk56R4EteKzKMhY703BMSE_M'
-      var youTubeUrl = 'https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q='+ cuisineHeader.textContent + '&key=' + youTubeApiKey
+      var youTubeApiKey = 'AIzaSyCPVbJouFqqk56R4EteKzKMhY703BMSE_M' //youtube API key
+      var youTubeUrl = 'https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q='+ cuisineHeader.textContent + '&key=' + youTubeApiKey // maxResults = 1 will return 1 video, q = cuisineHeader.textContent will return the video based on the recipe name
       
-      console.log(cuisineHeader.textContent)
+      console.log(cuisineHeader.textContent) //could remove later
   
-      fetch(youTubeUrl)
+      //fetch request for youTubeApi
+      fetch(youTubeUrl) 
       .then(function(response){
           return response.json()
       })
       .then(function(data){
           console.log(data)
-          console.log(data.items[0].id.videoId)
-          var videoId = data.items[0].id.videoId
+          console.log(data.items[0].id.videoId) //data.items[0].id.videoId will return the youtube videoId and we will use this inside the obj.video.value
+          var videoId = data.items[0].id.videoId //create a variable to store the youtube videoId and we will use this inside the obj.video.value
           var obj ={
               "video":{
-                  "value":"<iframe title='YouTube video player' type=\'text/html\' width='640' height='390' src='http://www.youtube.com/embed/" + videoId + "' frameborder='0' allowFullScreen></iframe>"
+                  "value":"<iframe title='YouTube video player' type=\'text/html\' width='640' height='390' src='http://www.youtube.com/embed/" + videoId + "' frameborder='0' allowFullScreen></iframe>" //create the obj object, and we will get the videoId from the variable we just created above
               }
           }
       
-          console.log(obj.video.value)
-    //    document.write(obj.video.value)
-          cuisineVideo.innerHTML=obj.video.value
-          page4Div.appendChild(cuisineVideo)
+          console.log(obj.video.value) // could remove later 
+    //    document.write(obj.video.value) // remove 
+          cuisineVideo.innerHTML=obj.video.value // add the obj.video.value to cusineVideo 
+          page4Div.appendChild(cuisineVideo) //parent append child 
           
   
       })
