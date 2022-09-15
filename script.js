@@ -11,6 +11,7 @@ var cuisineBtn = document.getElementById("cuisine"); //selecting DOM element
 var backBtn = document.getElementById("back");
 var homeBtn = document.getElementById("home");
 var mainDiv = document.querySelector("main"); //selecting DOM element
+var favoriteHome = document.getElementById("favoritehome") // selecting favorite home button
 
 var frenchStyle = document.getElementById("french"); //selecting DOM element
 var spoonApiKey = "c95dcc6d89ab47a384f18b2f989d7286"; //key
@@ -21,6 +22,11 @@ var recipeFavorite; //Declared globally, name of favorite recipe
 var listOfFavorites = [] //at first the list of favorite is empty, then as favorite button clicked --> fills array
 
 //var recipeInfoUrl = 'https://api.spoonacular.com/recipes/' + id +'/information'
+
+// This is an event listener for the favorite button on the home page 
+favoriteHome.addEventListener("click", function () {
+  console.log("local favorite"); // works
+})
 
 //once the user click the 'Cuisine' button, it calls the following function
 function page2handler(event) {
@@ -33,6 +39,7 @@ function page2handler(event) {
   var german = document.createElement("button"); //create DOM element (button)
   var italian = document.createElement("button"); //create DOM element (button)
   var backBtn = document.createElement('button')
+  backBtn.setAttribute('id','backBtn')
 
 
   mainDiv.appendChild(page2Div); //parent append child
@@ -204,7 +211,10 @@ function page4handler(id) {
 }
 
 
-function page1handler() {
+
+function page1handler() {}
+
+function page1handler(){
   page1Div.style.display = "flex"
   page2Div.style.display = "none"
   page3Div.style.display = "none"
@@ -212,6 +222,14 @@ function page1handler() {
 }
 
 
+
 // once the user click the 'Cuisine' button, it goes to page2
 
 cuisineBtn.addEventListener("click", page2handler);
+
+  
+
+// once the user click the 'Cuisine' button, it goes to page2
+
+cuisineBtn.addEventListener("click", page2handler);
+

@@ -14,18 +14,6 @@
   justify-content: space-around;
 }
 
-/*Plan to change the button's appearance - to do*/
-/* button {
-  background-color: #4caf50; /* Green */
-  /* border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-} */ 
-
 .continuous-1 {
   background: 
       linear-gradient(currentColor 0 0) 
@@ -55,14 +43,14 @@ button {
   color: white;
   background-size: 100%;
   width: 65%;
+  font-family: "Dancing Script", cursive;
 }
 
-.button1 {
-  background-color: white;
-  color: black;
-  border: 2px solid #4CAF50; /* Green */
+/*Hover effect for the homepage buttons*/
+button:hover {
+  background-color: rgb(0, 0, 0, 0.5);
+  background-blend-mode: 0.3;
 }
-
 
 #result {
   display: flex;
@@ -98,12 +86,8 @@ body {
 }
 
 
-/*Footer text styling*/
-/* #footer {
-  margin: 30px;
-  font-size: 30px;
-} */
-
+/*Footer css*/
+/*Need help centering*/
 a {
   text-decoration: none;
   color: white;
@@ -111,7 +95,10 @@ a {
   font-size: 30px;
   font-family: "Dancing Script", cursive;
   display: inline-block;
+  text-align: center;
+ 
 }
+
 
 /*Heading text format*/
 h1 {
@@ -128,12 +115,14 @@ h1 {
 
 }
 
-/* footer {
+
+/*footer {
   margin: auto;
   height: 30px;
   width: 100%;
   background-color: none;
   color: #ffffff;
+  text-align: center
 }
 
 footer span {
@@ -143,5 +132,5 @@ footer span {
   margin: 0 auto;
   text-align: center;
   
-} */
+}*/
 
