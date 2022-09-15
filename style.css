@@ -87,3 +87,20 @@ body {
 #header {
   font-size: 75px;
 }
+
+footer {
+  margin: auto;
+  height: 30px;
+  width: 100%;
+  background-color: none;
+  color: #ffffff;
+}
+
+footer span {
+  display:block;
+  background: none;
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+  
+}
