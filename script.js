@@ -15,7 +15,9 @@ var frenchStyle = document.getElementById("french"); //selecting DOM element
 var spoonApiKey = "c95dcc6d89ab47a384f18b2f989d7286"; //key
 
 var ids = []; //placeholder - might need to use array to remove duplicate id
-var recipeFavorite;
+
+var recipeFavorite; //Declared globally, name of favorite recipe
+var listOfFavorites = [] //at first the list of favorite is empty, then as favorite button clicked --> fills array
 
 //var recipeInfoUrl = 'https://api.spoonacular.com/recipes/' + id +'/information'
 
@@ -180,19 +182,38 @@ function page4handler(id) {
         });
     });
 
-  //! When favorite button clicked --> save name of the recipe to local storage (recipe name, recipe name)
+  //!When favorite button clicked --> push the recipe name to local storage
   favoriteBtn.addEventListener("click", function () {
-    console.log("favorite button clicked!"); //working
-    var recipeFavorite = cuisineHeader.textContent; //Recipe Name of the favorite recipe
-    console.log(recipeFavorite); //working
-    localStorage.setItem(recipeFavorite, recipeFavorite);
+    recipeFavorite = cuisineHeader.textContent; //Recipe Name of the favorite recipe
+    listOfFavorites.push(recipeFavorite); //recipe name added to listOfFavorites
+    listOfFavorites.forEach(element => { //each element in the array is saved to local storage
+      for (i = 0; i < 11; i++) {
+        localStorage.setItem(i, element);
+      }
+    });
   });
 }
 
 // once the user click the 'Cuisine' button, it goes to page2
 cuisineBtn.addEventListener("click", page2handler);
 
-var displayFavorites = function () {
-  console.log(localStorage.getItem(recipeFavorite));
-};
-displayFavorites();
+// //!Saves the new list of favorites to local storage
+// var saveListOfFavorites = function () {
+//   localStorage.setItem(favorites, listOfFavorites);
+// };
+
+//!Display the favorites cuisine
+// var displayFavorites = function () {
+//   listOfFavorites.forEach(element => {
+//     localStorage.setItem(favorite, )
+//   });
+
+//   var listArray = localStorage.getItem(favorites); //retrieves list of favorites from local storage
+//   for (i = 0; i < 10; i++) { //maximum of 10 favorites
+//     var favoriteItem = document.createElement('p'); //create p
+//     favoriteItem.textContent = (listArray[i]); //gets each favorite in the list and displays them
+//   };
+// };
+// displayFavorites();
+
+console.log(localStorage.getItem(favorites));
