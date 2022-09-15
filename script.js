@@ -10,6 +10,7 @@ var cuisineBtn = document.getElementById("cuisine"); //selecting DOM element
 var backBtn = document.getElementById("back");
 var homeBtn = document.getElementById("home");
 var mainDiv = document.querySelector("main"); //selecting DOM element
+var favoriteHome = document.getElementById("favoritehome") // selecting favorite home button
 
 var frenchStyle = document.getElementById("french"); //selecting DOM element
 var spoonApiKey = "c95dcc6d89ab47a384f18b2f989d7286"; //key
@@ -17,6 +18,11 @@ var spoonApiKey = "c95dcc6d89ab47a384f18b2f989d7286"; //key
 var ids = []; //placeholder - might need to use array to remove duplicate id
 
 //var recipeInfoUrl = 'https://api.spoonacular.com/recipes/' + id +'/information'
+
+// This is an event listener for the favorite button on the home page 
+favoriteHome.addEventListener("click", function () {
+  console.log("local favorite"); // works
+})
 
 //once the user click the 'Cuisine' button, it calls the following function
 function page2handler(event) {
