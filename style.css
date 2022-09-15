@@ -94,7 +94,7 @@ a {
   font-family: "Dancing Script", cursive;
 }
 
-/*Footer position*/
+/* Footer position */
 footer {
   margin: auto;
   padding: 85px;
@@ -103,12 +103,12 @@ footer {
   text-align: center
 }
 
-/*Heading text format*/
+/* Heading text format*/ 
 h1 {
   margin-bottom: 50px;
 }
 
-/*Button text styling*/
+/* Button text styling */
 .btntext {
   font-family: "Dancing Script", cursive;
   text-align: center;
