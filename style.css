@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  color:white;
 }
 
 #header-image {
@@ -11,7 +12,8 @@
 
 .page-1 {
   display: flex;
-  justify-content: space-around;
+  flex-direction:column;
+  align-items:center
 }
 
 .continuous-1 {
@@ -21,6 +23,7 @@
       no-repeat;
   transition:0.5s;
 }
+
 .continuous-1:hover {
   --d: -101%;
 }
