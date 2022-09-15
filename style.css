@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  color:white;
 }
 
 #header-image {
@@ -11,7 +12,8 @@
 
 .page-1 {
   display: flex;
-  justify-content: space-around;
+  flex-direction:column;
+  align-items:center
 }
 
 .continuous-1 {
@@ -21,6 +23,7 @@
       no-repeat;
   transition:0.5s;
 }
+
 .continuous-1:hover {
   --d: -101%;
 }
@@ -94,7 +97,7 @@ a {
   font-family: "Dancing Script", cursive;
 }
 
-/*Footer position*/
+/* Footer position */
 footer {
   margin: auto;
   padding: 85px;
@@ -103,12 +106,12 @@ footer {
   text-align: center
 }
 
-/*Heading text format*/
+/* Heading text format*/ 
 h1 {
   margin-bottom: 50px;
 }
 
-/*Button text styling*/
+/* Button text styling */
 .btntext {
   font-family: "Dancing Script", cursive;
   text-align: center;
