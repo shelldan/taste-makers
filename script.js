@@ -14,6 +14,7 @@ var cuisineBtn = document.getElementById("cuisine"); //selecting DOM element
 var dessertBtn = document.getElementById("dessert");
 var backBtn = document.getElementById("back");
 var mainDiv = document.querySelector("main"); //selecting DOM element
+var favoriteHome = document.getElementById("favoriteHome")
 
 var frenchStyle = document.getElementById("french"); //selecting DOM element
 var spoonApiKey = "c1dd5c80e4b74d598553ce3706c01d1c"; //key
@@ -22,9 +23,8 @@ var ids = []; //placeholder - might need to use array to remove duplicate id
 
 //var recipeInfoUrl = 'https://api.spoonacular.com/recipes/' + id +'/information'
 
-function page1handler(){
-  page1Div.style.display = "flex"
-  page4Div.style.display = "none"
+function refreshPage(){
+  window.location.reload()
 }
 
 //once the user click the 'Cuisine' button, it calls the following function
@@ -189,7 +189,7 @@ function page4handler(id) {
         });
     });
 
-  //! When favorite button clicked --> save name of the recipe to local storage (recipe name, recipe name)
+  //save function to store the favorite to localStorage 
   function save(){
     //get favorite from the header
     var recipeFavorite = cuisineHeader.textContent
@@ -207,11 +207,11 @@ function page4handler(id) {
     localStorage.setItem('favorite',JSON.stringify(savedFavorite))
   }
 
+  // when favorite button clicked --> save name of the recipe to local storage 
   favoriteBtn.addEventListener("click",save)
 
-  homeBtn.addEventListener("click",page1handler)
+  homeBtn.addEventListener("click",refreshPage)
 }
-
 
 
 function page5handler(event) {
@@ -303,7 +303,7 @@ function page6handler(event) {
   getRecipeName(); //call the getRecipeName function
 }
 
-//the function is handling the page3
+//the function is handling the page7
 function page7handler(id) {
   page2Div.style.display = "none"; //hide page 2
   page3Div.style.display = "none"; //hide page 3
@@ -320,13 +320,15 @@ function page7handler(id) {
   var favoriteBtn = document.createElement("button"); //creates the favorite ❤ button
   favoriteBtn.textContent = "Favorite ❤"; //sets favoriteBtn text to 'Favorite ❤'
   favoriteBtn.setAttribute("class", "favorite-btn"); //sets favoriteBtn class to favorite-btn
+  homeBtn.textContent ="Home"
 
   mainDiv.appendChild(page7Div); // parent append child
   page7Div.appendChild(dessertHeader); // parent append child
   page7Div.appendChild(favoriteBtn); // appends favorite button to the header
   page7Div.appendChild(dessertImg); // parent append child
   page7Div.appendChild(dessertRecipe); // parent append child
-  //page7Div.appendChild(dessertVideo);
+  page7Div.appendChild(homeBtn);
+
 
   var dessertRecipeInfoUrl =
     "https://api.spoonacular.com/recipes/" +
@@ -343,16 +345,13 @@ function page7handler(id) {
     .then(function (dessertRecipeInfo) {
       console.log(dessertRecipeInfo);
       dessertHeader.textContent = dessertRecipeInfo.title; //add textContent to the header, recipeInfo.title will return the name of the recipe
-      console.log(dessertHeader.innerText)
-      var dessertName = dessertHeader.innerText
-      console.log(dessertName)
       dessertImg.src = dessertRecipeInfo.image; //add image to the image HTML, recipeInfo.image will return the src link
       dessertRecipe.innerHTML = dessertRecipeInfo.summary; // add innerHTML to the body, recipeInfo.summary will return the text summary of the recipe
 
       var youTubeApiKey = "AIzaSyCPVbJouFqqk56R4EteKzKMhY703BMSE_M"; //youtube API key
       var youTubeUrlDessert =
         "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=" +
-        dessertName +
+        dessertHeader.textContent +
         "&key=" +
         youTubeApiKey; // maxResults = 1 will return 1 video, q = cuisineHeader.textContent will return the video based on the recipe name
 
@@ -384,19 +383,54 @@ function page7handler(id) {
         });
     });
 
-  //! When favorite button clicked --> save name of the recipe to local storage (recipe name, recipe name)
-  favoriteBtn.addEventListener("click", function () {
-    console.log("favorite button clicked!"); //working
-    var recipeFavorite = dessertHeader.textContent;
-    console.log(dessertRecipeFavorite);
-    localStorage.setItem(dessertRecipeFavorite, dessertRecipeFavorite);
-  });
+  //save function to store the favorite to localStorage 
+  function save(){
+    //get favorite from the header
+    var recipeFavorite = dessertHeader.textContent
+
+    //if there is nothing saved at the start then save an empty array
+    if(localStorage.getItem('favorite')==null){
+      localStorage.setItem('favorite','[]')
+    }
+
+    //get old data and slap it to the new data
+    var savedFavorite = JSON.parse(localStorage.getItem('favorite'))
+    savedFavorite.push(recipeFavorite)
+
+    //save the old + new data to local storage
+    localStorage.setItem('favorite',JSON.stringify(savedFavorite))
+  }
+
+  // when favorite button clicked --> save name of the recipe to local storage 
+  favoriteBtn.addEventListener("click",save)
+
+  homeBtn.addEventListener("click",refreshPage)
+
 }
 
+//how to remove the duplicate value? 
+function display(){
+  //if there is indeed data then continue 
+  if(localStorage.getItem('favorite') != null){
+
+    //store the localStorage.getItem('favorite') to a variable favoriteArray; the || [] replaces possible null from localStorage with empty array
+    favoriteArray = JSON.parse(localStorage.getItem('favorite')) || [];
+    console.log(favoriteArray)
+    
+    //iterate through the favoriteItem 
+    for (var i = 0 ; i<favoriteArray.length; i++){
+      var favoriteList = document.createElement('li')
+      favoriteList.textContent = favoriteArray[i]
+      favoriteHome.appendChild(favoriteList)
+    }
+  }
+}
 
 // once the user click the 'Cuisine' button, it goes to page2
 cuisineBtn.addEventListener("click", page2handler);
 
-
 //once the user clicks the 'Dessert' button, it goes to page5
 dessertBtn.addEventListener("click", page5handler);
+
+//once the user clicks the 'favorite' button, it display the favoriteArray 
+favoriteHome.addEventListener("click",display)
