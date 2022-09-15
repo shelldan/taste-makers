@@ -16,7 +16,7 @@ var backBtn = document.getElementById("back");
 var mainDiv = document.querySelector("main"); //selecting DOM element
 
 var frenchStyle = document.getElementById("french"); //selecting DOM element
-var spoonApiKey = "bff7143ee08c4a6aa8d53b4a91fc839f"; //key
+var spoonApiKey = "c1dd5c80e4b74d598553ce3706c01d1c"; //key
 
 var ids = []; //placeholder - might need to use array to remove duplicate id
 
