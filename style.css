@@ -15,16 +15,16 @@
 }
 
 /*Plan to change the button's appearance - to do*/
-button {
+/* button {
   background-color: #4caf50; /* Green */
-  border: none;
+  /* border: none;
   color: white;
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-}
+} */ 
 
 .continuous-1 {
   background: 
@@ -43,9 +43,18 @@ button {
   align-content: space-around;
   align-items: center;
 }
+
+/*Button look property*/
 button {
   margin: 1rem;
   padding: 1rem;
+  font-size: 50px;
+  border-radius: 8px;
+  border: 10px;
+  background-image: url(./assets/Images/Dark_chalkboard.jpeg);
+  color: white;
+  background-size: 100%;
+  width: 65%;
 }
 
 .button1 {
@@ -88,6 +97,28 @@ body {
   font-size: 75px;
 }
 
+
+/*Footer text styling*/
+#footer {
+  margin: 30px;
+  font-size: 30px;
+}
+
+/*Heading text format*/
+h1 {
+  margin-bottom: 50px;
+}
+
+/*Button text styling*/
+.btntext {
+  font-family: "Dancing Script", cursive;
+  text-align: center;
+  width: 35%;
+  background-size: cover;
+  color: white;
+
+}
+
 footer {
   margin: auto;
   height: 30px;
@@ -104,3 +135,4 @@ footer span {
   text-align: center;
   
 }
+
