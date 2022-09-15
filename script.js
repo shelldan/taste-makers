@@ -15,6 +15,7 @@ var frenchStyle = document.getElementById("french"); //selecting DOM element
 var spoonApiKey = "c95dcc6d89ab47a384f18b2f989d7286"; //key
 
 var ids = []; //placeholder - might need to use array to remove duplicate id
+var recipeFavorite;
 
 //var recipeInfoUrl = 'https://api.spoonacular.com/recipes/' + id +'/information'
 
@@ -182,11 +183,16 @@ function page4handler(id) {
   //! When favorite button clicked --> save name of the recipe to local storage (recipe name, recipe name)
   favoriteBtn.addEventListener("click", function () {
     console.log("favorite button clicked!"); //working
-    var recipeFavorite = cuisineHeader.textContent;
-    console.log(recipeFavorite);
+    var recipeFavorite = cuisineHeader.textContent; //Recipe Name of the favorite recipe
+    console.log(recipeFavorite); //working
     localStorage.setItem(recipeFavorite, recipeFavorite);
   });
 }
 
 // once the user click the 'Cuisine' button, it goes to page2
 cuisineBtn.addEventListener("click", page2handler);
+
+var displayFavorites = function () {
+  console.log(localStorage.getItem(recipeFavorite));
+};
+displayFavorites();
