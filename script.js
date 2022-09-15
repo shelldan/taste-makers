@@ -14,9 +14,12 @@ var mainDiv = document.querySelector("main"); //selecting DOM element
 var favoriteHome = document.getElementById("favoritehome") // selecting favorite home button
 
 var frenchStyle = document.getElementById("french"); //selecting DOM element
-var spoonApiKey = "c95dcc6d89ab47a384f18b2f989d7286"; //key
+var spoonApiKey = "bff7143ee08c4a6aa8d53b4a91fc839f"; //key
 
 var ids = []; //placeholder - might need to use array to remove duplicate id
+
+var recipeFavorite; //Declared globally, name of favorite recipe
+var listOfFavorites = [] //at first the list of favorite is empty, then as favorite button clicked --> fills array
 
 //var recipeInfoUrl = 'https://api.spoonacular.com/recipes/' + id +'/information'
 
@@ -35,8 +38,9 @@ function page2handler(event) {
   var american = document.createElement("button"); //create DOM element (button)
   var german = document.createElement("button"); //create DOM element (button)
   var italian = document.createElement("button"); //create DOM element (button)
-  var backBtn = document.createElement('button')
-  backBtn.setAttribute('id','backBtn')
+  // var backBtn = document.createElement('button')
+  // backBtn.setAttribute('id','backBtn')
+  // var backBtn1 = document.getElementById('backBtn')
 
 
   mainDiv.appendChild(page2Div); //parent append child
@@ -44,18 +48,17 @@ function page2handler(event) {
   page2Div.appendChild(american); //parent append child
   page2Div.appendChild(german); //parent append child
   page2Div.appendChild(italian); //parent append child
-  page2Div.appendChild(backBtn)
-  
+
 
   french.innerHTML = "French"; //assign innerHTML to button
   american.innerHTML = "American"; //assign innerHTML to button
   german.textContent = "German"; //assign innerHTML to button
   italian.textContent = "Italian"; //assign innerHTML to button
-  backBtn.textContent = "Back"
+  // backBtn.textContent = "Back"
 
   console.log(event.target.textContent); //could remove it; used to check the button the user clicks
 
-  backBtn.addEventListener("click", page1handler)
+  // backBtn1.addEventListener("click", page1handler)
   $("button").click(page3handler); // once the user click on any button, it will call page3handler function
 }
 
@@ -193,15 +196,19 @@ function page4handler(id) {
         });
     });
 
-  //! When favorite button clicked --> save name of the recipe to local storage (recipe name, recipe name)
+  //!When favorite button clicked --> push the recipe name to local storage
   favoriteBtn.addEventListener("click", function () {
-    console.log("favorite button clicked!"); //working
-    var recipeFavorite = cuisineHeader.textContent;
-    console.log(recipeFavorite);
-    localStorage.setItem(recipeFavorite, recipeFavorite);
+    recipeFavorite = cuisineHeader.textContent; //Recipe Name of the favorite recipe
+    listOfFavorites.push(recipeFavorite); //add recipe to the list of favorites
+    localStorage.setItem("favorites", JSON.stringify(listOfFavorites)); //save to local storage
+    var favoritesToDisplay = JSON.parse(localStorage.getItem("favorites"));
+    console.log(favoritesToDisplay);
   });
 }
 
+
+
+function page1handler() {}
 
 function page1handler(){
   page1Div.style.display = "flex"
@@ -209,8 +216,16 @@ function page1handler(){
   page3Div.style.display = "none"
   page4Div.style.display = "none"
 }
+
+
+
+// once the user click the 'Cuisine' button, it goes to page2
+
+cuisineBtn.addEventListener("click", page2handler);
+
   
 
 // once the user click the 'Cuisine' button, it goes to page2
 
 cuisineBtn.addEventListener("click", page2handler);
+

@@ -86,19 +86,22 @@ body {
 }
 
 
-/*Footer css*/
-/*Need help centering*/
+/*Footer font style*/
 a {
   text-decoration: none;
   color: white;
-  margin: 30px;
   font-size: 30px;
   font-family: "Dancing Script", cursive;
-  display: inline-block;
-  text-align: center;
- 
 }
 
+/*Footer position*/
+footer {
+  margin: auto;
+  padding: 85px;
+  height: 30px;
+  width: 100%;
+  text-align: center
+}
 
 /*Heading text format*/
 h1 {
@@ -115,21 +118,4 @@ h1 {
 
 }
 
-footer {
-  margin: auto;
-  height: 30px;
-  width: 100%;
-  background-color: none;
-  color: #ffffff;
-  text-align: center
-}
-
-footer span {
-  display:block;
-  background: none;
-  width: 50%;
-  margin: 0 auto;
-  text-align: center;
-  
-}*/
 
