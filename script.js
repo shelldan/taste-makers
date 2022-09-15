@@ -17,7 +17,8 @@ var mainDiv = document.querySelector("main"); //selecting DOM element
 var favoriteHome = document.getElementById("favoriteHome")
 
 var frenchStyle = document.getElementById("french"); //selecting DOM element
-var spoonApiKey = "c1dd5c80e4b74d598553ce3706c01d1c"; //key
+var spoonApiKey = "14247a92423844b6a40e24594639ed2b"; //key
+var youTubeApiKey = "AIzaSyDgew_X5hJZ7FyXVTt6ZcrlM2_MMbRyUTE"; //youtube API key
 
 var ids = []; //placeholder - might need to use array to remove duplicate id
 
@@ -144,6 +145,8 @@ function page4handler(id) {
     "&apiKey=" +
     spoonApiKey; //spoonacular API
 
+  console.log(recipeInfoUrl)
+  
   //fetch request for spoonacular API
   fetch(recipeInfoUrl)
     .then(function (response) {
@@ -155,7 +158,7 @@ function page4handler(id) {
       cuisineImg.src = recipeInfo.image; //add image to the image HTML, recipeInfo.image will return the src link
       cuisineRecipe.innerHTML = recipeInfo.summary; // add innerHTML to the body, recipeInfo.summary will return the text summary of the recipe
 
-      var youTubeApiKey = "AIzaSyCPVbJouFqqk56R4EteKzKMhY703BMSE_M"; //youtube API key
+      // var youTubeApiKey = "AIzaSyCPVbJouFqqk56R4EteKzKMhY703BMSE_M"; //youtube API key
       var youTubeUrl =
         "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=" +
         cuisineHeader.textContent +
@@ -348,7 +351,7 @@ function page7handler(id) {
       dessertImg.src = dessertRecipeInfo.image; //add image to the image HTML, recipeInfo.image will return the src link
       dessertRecipe.innerHTML = dessertRecipeInfo.summary; // add innerHTML to the body, recipeInfo.summary will return the text summary of the recipe
 
-      var youTubeApiKey = "AIzaSyCPVbJouFqqk56R4EteKzKMhY703BMSE_M"; //youtube API key
+      // var youTubeApiKey = "AIzaSyCPVbJouFqqk56R4EteKzKMhY703BMSE_M"; //youtube API key
       var youTubeUrlDessert =
         "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=" +
         dessertHeader.textContent +
@@ -419,12 +422,45 @@ function display(){
     
     //iterate through the favoriteItem 
     for (var i = 0 ; i<favoriteArray.length; i++){
-      var favoriteList = document.createElement('li')
+      var favoriteDiv = document.createElement('div')
+      var favoriteList = document.createElement('button')
       favoriteList.textContent = favoriteArray[i]
-      favoriteHome.appendChild(favoriteList)
+      favoriteHome.appendChild(favoriteDiv)
+      favoriteDiv.appendChild(favoriteList)
+
+      favoriteList.addEventListener('click',function(){
+        console.log(this.innerText)
+        var favoriteName = this.innerText
+        displayFavorite(favoriteName)
+      })
     }
   }
 }
+
+
+//displayFavorite Recipe instruction and video 
+function displayFavorite(favoriteName){
+  console.log(favoriteName)
+
+  var youTubeUrl =
+  "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=" +
+  favoriteName +
+  "&key=" +
+  youTubeApiKey;
+
+  console.log(youTubeUrl)
+
+  fetch(youTubeUrl)
+  .then(function(response){
+    return response.json()
+  })
+  .then(function(data){
+    console.log(data)
+    console.log(data.items[0].id.videoId)
+  })
+
+}
+
 
 // once the user click the 'Cuisine' button, it goes to page2
 cuisineBtn.addEventListener("click", page2handler);
