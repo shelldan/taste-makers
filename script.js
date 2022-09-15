@@ -192,14 +192,10 @@ function page4handler(id) {
   //!When favorite button clicked --> push the recipe name to local storage
   favoriteBtn.addEventListener("click", function () {
     recipeFavorite = cuisineHeader.textContent; //Recipe Name of the favorite recipe
-    console.log(recipeFavorite);
-    localStorage.setItem(recipeFavorite, recipeFavorite); //in local storage
-    //!Display favorite recipe on the favorites home area
-    var favoriteDisplayed = document.createElement('p');
-    favoriteDisplayed.textContent = localStorage.getItem(recipeFavorite);
-    console.log(favoriteDisplayed);
-    //!Going to be appended to the area created by the home page favorite button
-    //...appendChild(favoriteDisplayed)
+    listOfFavorites.push(recipeFavorite); //add recipe to the list of favorites
+    localStorage.setItem("favorites", JSON.stringify(listOfFavorites)); //save to local storage
+    var favoritesToDisplay = JSON.parse(localStorage.getItem("favorites"));
+    console.log(favoritesToDisplay);
   });
 }
 
