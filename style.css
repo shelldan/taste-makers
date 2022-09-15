@@ -26,6 +26,17 @@ button {
   font-size: 16px;
 }
 
+.continuous-1 {
+  background: 
+      linear-gradient(currentColor 0 0) 
+      var(--d, 201%) 100% /200% 3px 
+      no-repeat;
+  transition:0.5s;
+}
+.continuous-1:hover {
+  --d: -101%;
+}
+
 .page-2 {
   display: flex;
   flex-direction: column;
