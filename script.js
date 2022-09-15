@@ -3,13 +3,14 @@
 var page2Div = document.createElement("div"); //create dynamic div html element
 var page3Div = document.createElement("div"); //create dynamic div html element
 var page4Div = document.createElement("div"); //create dynamic div html element
+//var pageFavDiv = document.createElement("div")
+var homeBtn = document.createElement("button")
 
 
 var page1Div = document.querySelector(".page-1"); //selecting DOM element
+var favoriteList = document.querySelector(".favoriteList")
 
 var cuisineBtn = document.getElementById("cuisine"); //selecting DOM element
-var backBtn = document.getElementById("back");
-var homeBtn = document.getElementById("home");
 var mainDiv = document.querySelector("main"); //selecting DOM element
 var favoriteHome = document.getElementById("favoritehome") // selecting favorite home button
 
@@ -23,10 +24,15 @@ var listOfFavorites = [] //at first the list of favorite is empty, then as favor
 
 //var recipeInfoUrl = 'https://api.spoonacular.com/recipes/' + id +'/information'
 
-// This is an event listener for the favorite button on the home page 
-favoriteHome.addEventListener("click", function () {
-  console.log("local favorite"); // works
-})
+
+
+function page1handler(){
+  page1Div.style.display = "flex"
+  // page2Div.style.display = "none"
+  // page3Div.style.display = "none"
+  page4Div.style.display = "none"
+}
+
 
 //once the user click the 'Cuisine' button, it calls the following function
 function page2handler(event) {
@@ -98,6 +104,7 @@ function page3handler(event) {
           var cuisineRecipe = document.createElement("p"); // create new element
 
           cuisineHeader.textContent = recipeName.results[i].title; //iterate through the 10 items
+          console.log(cuisineHeader)
           cuisineImg.src = recipeName.results[i].image; //iterate through the 10 items
           cuisineHeader.setAttribute("id", recipeName.results[i].id); //iterate through the 10 items
 
@@ -122,7 +129,7 @@ function page3handler(event) {
   getRecipeName(); //call the getRecipeName function
 }
 
-//the function is handling the page3
+//the function is handling the page4
 function page4handler(id) {
   page2Div.style.display = "none"; //hide page 2
   page3Div.style.display = "none"; //hide page 3
@@ -136,13 +143,14 @@ function page4handler(id) {
   var favoriteBtn = document.createElement("button"); //creates the favorite ❤ button
   favoriteBtn.textContent = "Favorite ❤"; //sets favoriteBtn text to 'Favorite ❤'
   favoriteBtn.setAttribute("class", "favorite-btn"); //sets favoriteBtn class to favorite-btn
+  homeBtn.textContent = "Home"
 
   mainDiv.appendChild(page4Div); // parent append child
   page4Div.appendChild(cuisineHeader); // parent append child
   page4Div.appendChild(favoriteBtn); // appends favorite button to the header
   page4Div.appendChild(cuisineImg); // parent append child
   page4Div.appendChild(cuisineRecipe); // parent append child
-  //page4Div.appendChild(cuisineVideo);
+  page4Div.appendChild(homeBtn)
 
   var recipeInfoUrl =
     "https://api.spoonacular.com/recipes/" +
@@ -195,37 +203,57 @@ function page4handler(id) {
           page4Div.appendChild(cuisineVideo); //parent append child
         });
     });
-
+  
+  
   //!When favorite button clicked --> push the recipe name to local storage
-  favoriteBtn.addEventListener("click", function () {
-    recipeFavorite = cuisineHeader.textContent; //Recipe Name of the favorite recipe
-    listOfFavorites.push(recipeFavorite); //add recipe to the list of favorites
-    localStorage.setItem("favorites", JSON.stringify(listOfFavorites)); //save to local storage
-    var favoritesToDisplay = JSON.parse(localStorage.getItem("favorites"));
-    console.log(favoritesToDisplay);
-  });
+  function save(){
+    //get favorite from the header 
+    var recipeFavorite = cuisineHeader.textContent;
+
+    // if there is nothing saved at the start then save an empty array
+    if(localStorage.getItem('favorite') == null){
+      localStorage.setItem('favorite','[]');
+    }
+
+    //get old data and slap it to the new data 
+    var savedFavorite = JSON.parse(localStorage.getItem('favorite'))
+    savedFavorite.push(recipeFavorite)
+
+    //save the old + new data to local storage 
+    localStorage.setItem('favorite',JSON.stringify(savedFavorite))
+  }
+
+  favoriteBtn.addEventListener("click",save)
+
+  homeBtn.addEventListener("click",page1handler)
 }
 
 
+// function displayFavorite(){
+//   //listOfFavorites = JSON.parse(localStorage.getItem('favorites'))
+//   var favoriteName = document.createElement('p')
+  
+//   favoriteList.appendChild(favoriteName)
 
-function page1handler() {}
+//   var favoritesToDisplay = JSON.parse(localStorage.getItem("favorites"));
+//   console.log(favoritesToDisplay);
+
+//   for (var i = 0; i<favoritesToDisplay.length; i++){
+//     favoriteName.textContent = favoritesToDisplay[i]
+//   }
+// }
+
+
+
 
 function page1handler(){
   page1Div.style.display = "flex"
-  page2Div.style.display = "none"
-  page3Div.style.display = "none"
   page4Div.style.display = "none"
 }
 
 
 
-// once the user click the 'Cuisine' button, it goes to page2
-
 cuisineBtn.addEventListener("click", page2handler);
+// favoriteHome.addEventListener("click",displayFavorite)
 
-  
-
-// once the user click the 'Cuisine' button, it goes to page2
-
-cuisineBtn.addEventListener("click", page2handler);
 
