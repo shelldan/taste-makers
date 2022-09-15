@@ -99,9 +99,18 @@ body {
 
 
 /*Footer text styling*/
-#footer {
+/* #footer {
   margin: 30px;
   font-size: 30px;
+} */
+
+a {
+  text-decoration: none;
+  color: white;
+  margin: 30px;
+  font-size: 30px;
+  font-family: "Dancing Script", cursive;
+  display: inline-block;
 }
 
 /*Heading text format*/
@@ -119,7 +128,7 @@ h1 {
 
 }
 
-footer {
+/* footer {
   margin: auto;
   height: 30px;
   width: 100%;
@@ -134,5 +143,5 @@ footer span {
   margin: 0 auto;
   text-align: center;
   
-}
+} */
 
