@@ -30,7 +30,7 @@ function page2handler(event) {
   var german = document.createElement("button"); //create DOM element (button)
   var italian = document.createElement("button"); //create DOM element (button)
   var backBtn = document.createElement('button')
-  backBtn.setAttribute('class','backBtn')
+  backBtn.setAttribute('id','backBtn')
 
 
   mainDiv.appendChild(page2Div); //parent append child
