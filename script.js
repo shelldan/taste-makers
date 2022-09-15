@@ -14,7 +14,7 @@ var mainDiv = document.querySelector("main"); //selecting DOM element
 var favoriteHome = document.getElementById("favoritehome") // selecting favorite home button
 
 var frenchStyle = document.getElementById("french"); //selecting DOM element
-var spoonApiKey = "c95dcc6d89ab47a384f18b2f989d7286"; //key
+var spoonApiKey = "14247a92423844b6a40e24594639ed2b"; //key
 
 var ids = []; //placeholder - might need to use array to remove duplicate id
 
@@ -38,8 +38,8 @@ function page2handler(event) {
   var american = document.createElement("button"); //create DOM element (button)
   var german = document.createElement("button"); //create DOM element (button)
   var italian = document.createElement("button"); //create DOM element (button)
-  var backBtn = document.createElement('button')
-  backBtn.setAttribute('id','backBtn')
+  // var backBtn = document.createElement('button') //comment out back button
+  // backBtn.setAttribute('id','backBtn') // comment out back button
 
 
   mainDiv.appendChild(page2Div); //parent append child
@@ -47,18 +47,18 @@ function page2handler(event) {
   page2Div.appendChild(american); //parent append child
   page2Div.appendChild(german); //parent append child
   page2Div.appendChild(italian); //parent append child
-  page2Div.appendChild(backBtn)
+  // page2Div.appendChild(backBtn)
 
 
   french.innerHTML = "French"; //assign innerHTML to button
   american.innerHTML = "American"; //assign innerHTML to button
   german.textContent = "German"; //assign innerHTML to button
   italian.textContent = "Italian"; //assign innerHTML to button
-  backBtn.textContent = "Back"
+  // backBtn.textContent = "Back" // comment out back button 
 
   console.log(event.target.textContent); //could remove it; used to check the button the user clicks
 
-  backBtn.addEventListener("click", page1handler)
+  // backBtn.addEventListener("click", page1handler)
   $("button").click(page3handler); // once the user click on any button, it will call page3handler function
 }
 
