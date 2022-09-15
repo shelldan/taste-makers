@@ -35,7 +35,7 @@ function page2handler(event) {
   mainDiv.appendChild(page2Div); //parent append child
   page2Div.appendChild(french); //parent append child
   page2Div.appendChild(american); //parent append child
-  page2Div.appendChild(german); //parent append child
+  page2Div.appendChild(german); //parent append child¡
   page2Div.appendChild(italian); //parent append child
 
   french.innerHTML = "French"; //assign innerHTML to button
@@ -185,35 +185,8 @@ function page4handler(id) {
   //!When favorite button clicked --> push the recipe name to local storage
   favoriteBtn.addEventListener("click", function () {
     recipeFavorite = cuisineHeader.textContent; //Recipe Name of the favorite recipe
-    listOfFavorites.push(recipeFavorite); //recipe name added to listOfFavorites
-    listOfFavorites.forEach(element => { //each element in the array is saved to local storage
-      for (i = 0; i < 11; i++) {
-        localStorage.setItem(i, element);
-      }
     });
-  });
 }
 
 // once the user click the 'Cuisine' button, it goes to page2
 cuisineBtn.addEventListener("click", page2handler);
-
-// //!Saves the new list of favorites to local storage
-// var saveListOfFavorites = function () {
-//   localStorage.setItem(favorites, listOfFavorites);
-// };
-
-//!Display the favorites cuisine
-// var displayFavorites = function () {
-//   listOfFavorites.forEach(element => {
-//     localStorage.setItem(favorite, )
-//   });
-
-//   var listArray = localStorage.getItem(favorites); //retrieves list of favorites from local storage
-//   for (i = 0; i < 10; i++) { //maximum of 10 favorites
-//     var favoriteItem = document.createElement('p'); //create p
-//     favoriteItem.textContent = (listArray[i]); //gets each favorite in the list and displays them
-//   };
-// };
-// displayFavorites();
-
-console.log(localStorage.getItem(favorites));
