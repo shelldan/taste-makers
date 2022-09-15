@@ -18,6 +18,9 @@ var spoonApiKey = "c95dcc6d89ab47a384f18b2f989d7286"; //key
 
 var ids = []; //placeholder - might need to use array to remove duplicate id
 
+var recipeFavorite; //Declared globally, name of favorite recipe
+var listOfFavorites = [] //at first the list of favorite is empty, then as favorite button clicked --> fills array
+
 //var recipeInfoUrl = 'https://api.spoonacular.com/recipes/' + id +'/information'
 
 // This is an event listener for the favorite button on the home page 
@@ -45,7 +48,7 @@ function page2handler(event) {
   page2Div.appendChild(german); //parent append child
   page2Div.appendChild(italian); //parent append child
   page2Div.appendChild(backBtn)
-  
+
 
   french.innerHTML = "French"; //assign innerHTML to button
   american.innerHTML = "American"; //assign innerHTML to button
@@ -193,15 +196,23 @@ function page4handler(id) {
         });
     });
 
-  //! When favorite button clicked --> save name of the recipe to local storage (recipe name, recipe name)
+  //!When favorite button clicked --> push the recipe name to local storage
   favoriteBtn.addEventListener("click", function () {
-    console.log("favorite button clicked!"); //working
-    var recipeFavorite = cuisineHeader.textContent;
+    recipeFavorite = cuisineHeader.textContent; //Recipe Name of the favorite recipe
     console.log(recipeFavorite);
-    localStorage.setItem(recipeFavorite, recipeFavorite);
+    localStorage.setItem(recipeFavorite, recipeFavorite); //in local storage
+    //!Display favorite recipe on the favorites home area
+    var favoriteDisplayed = document.createElement('p');
+    favoriteDisplayed.textContent = localStorage.getItem(recipeFavorite);
+    console.log(favoriteDisplayed);
+    //!Going to be appended to the area created by the home page favorite button
+    //...appendChild(favoriteDisplayed)
   });
 }
 
+
+
+function page1handler() {}
 
 function page1handler(){
   page1Div.style.display = "flex"
@@ -209,8 +220,16 @@ function page1handler(){
   page3Div.style.display = "none"
   page4Div.style.display = "none"
 }
+
+
+
+// once the user click the 'Cuisine' button, it goes to page2
+
+cuisineBtn.addEventListener("click", page2handler);
+
   
 
 // once the user click the 'Cuisine' button, it goes to page2
 
 cuisineBtn.addEventListener("click", page2handler);
+
