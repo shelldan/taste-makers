@@ -44,6 +44,7 @@ function page2handler(event) {
   var american = document.createElement("button"); //create DOM element (button)
   var german = document.createElement("button"); //create DOM element (button)
   var italian = document.createElement("button"); //create DOM element (button)
+  var backBtn = document.createElement("button"); //create DOM element (button)
 
   mainDiv.appendChild(page2Div); //parent append child
   page2Div.appendChild(french); //parent append child
@@ -136,6 +137,7 @@ function page4handler(id) {
   var cuisineRecipe = document.createElement("p"); //create element
   var cuisineVideo = document.createElement("div"); //create element
   var favoriteBtn = document.createElement("button"); //creates the favorite ❤ button
+  var backBtn = document.createElement("button"); //create DOM element (button)
   favoriteBtn.textContent = "Favorite ❤"; //sets favoriteBtn text to 'Favorite ❤'
   favoriteBtn.setAttribute("class", "favorite-btn"); //sets favoriteBtn class to favorite-btn
   homeBtn.textContent = "Home";
