@@ -22,8 +22,8 @@ var clearBtn = document.getElementById("clear")
 
 var frenchStyle = document.getElementById("french"); //selecting DOM element
 
-var spoonApiKey = "69b056115d964a63a39bfc1d5040e02e"; //key
-var youTubeApiKey = "AIzaSyAs5UNLJXXYe-G9ztXo-qPDZbI8Z0oxb7w"; //youtube API key
+var spoonApiKey = "1f888050f2a84b67a81a86ab40b3fe81"; //key
+var youTubeApiKey = "AIzaSyA2Itu1VDeq4gOr5dBotNVqVJRLVOxFRiI"; //youtube API key
 
 var favoriteArray = []; //to hold array for favorite recipe
 
@@ -473,6 +473,7 @@ function display() {
       favoriteDiv.appendChild(favoriteList)
 
       favoriteList.addEventListener('click', function () {
+        // var chosenFavorite = event.target.textContent
         console.log(this.innerText)
         var favoriteName = this.innerText
         displayFavorite(favoriteName)
@@ -485,10 +486,10 @@ function display() {
 //displayFavorite Recipe instruction and video 
 function displayFavorite(favoriteName) {
   console.log(favoriteName)
-  // var favoriteDiv = document.createElement('div')
+  // favoriteDiv = document.createElement('div')
   // favoriteList = document.createElement('button')
-  // favoriteHome.appendChild(favoriteDiv)
-  // favoriteDiv.appendChild(favoriteList)
+  favoriteHome.appendChild(favoriteDiv)
+  favoriteDiv.appendChild(favoriteList)
 
 
   var youTubeUrl =
@@ -519,6 +520,11 @@ function displayFavorite(favoriteName) {
       var favoriteVideo = document.createElement('p')
       favoriteVideo.innerHTML = obj.video.value
       favoriteList.appendChild(favoriteVideo)
+
+      // for (var j = 0; j<favoriteList.length; j++){
+      //   favoriteList[j].appendChild(favoriteVideo[j])
+      // }
+      
     })
 
 }
