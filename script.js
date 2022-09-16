@@ -24,7 +24,7 @@ var clearBtn = document.getElementById("clear")
 var frenchStyle = document.getElementById("french"); //selecting DOM element
 
 var spoonApiKey = "1f888050f2a84b67a81a86ab40b3fe81"; //key
-var youTubeApiKey = "AIzaSyAs5UNLJXXYe-G9ztXo-qPDZbI8Z0oxb7w"; //youtube API key
+var youTubeApiKey = "AIzaSyA2Itu1VDeq4gOr5dBotNVqVJRLVOxFRiI"; //youtube API key
 
 var favoriteArray = []; //to hold array for favorite recipe
 
@@ -199,7 +199,7 @@ function page4handler(id) {
           var obj = {
             video: {
               value:
-                "<iframe title='YouTube video player' type='text/html' width='640' height='390' src='http://www.youtube.com/embed/" +
+                "<iframe title='YouTube video player' type='text/html' width='640' height='390' src='https://www.youtube.com/embed/" +
                 videoId +
                 "' frameborder='0' allowFullScreen></iframe>", //create the obj object, and we will get the videoId from the variable we just created above
             },
@@ -415,7 +415,7 @@ function page7handler(id) {
           var obj = {
             video: {
               value:
-                "<iframe title='YouTube video player' type='text/html' width='640' height='390' src='http://www.youtube.com/embed/" +
+                "<iframe title='YouTube video player' type='text/html' width='640' height='390' src='https://www.youtube.com/embed/" +
                 videoId +
                 "' frameborder='0' allowFullScreen></iframe>", //create the obj object, and we will get the videoId from the variable we just created above
             },
@@ -488,10 +488,8 @@ function display() {
       favoriteHome.appendChild(favoriteDiv)
       favoriteDiv.appendChild(favoriteList)
 
-      favoriteList.addEventListener('click', function (event) {
-        var chosen = event.target;
-        divOfChosen = chosen.parentElement; //! This is the empty div for the video
-        console.log(divOfChosen);
+      favoriteList.addEventListener('click', function () {
+        // var chosenFavorite = event.target.textContent
         console.log(this.innerText)
         var favoriteName = this.innerText
         displayFavorite(favoriteName)
@@ -504,10 +502,10 @@ function display() {
 //displayFavorite Recipe instruction and video 
 function displayFavorite(favoriteName) {
   console.log(favoriteName)
-  // var favoriteDiv = document.createElement('div')
+  // favoriteDiv = document.createElement('div')
   // favoriteList = document.createElement('button')
-  // favoriteHome.appendChild(favoriteDiv)
-  // favoriteDiv.appendChild(favoriteList)
+  favoriteHome.appendChild(favoriteDiv)
+  favoriteDiv.appendChild(favoriteList)
 
 
   var youTubeUrl =
@@ -529,7 +527,7 @@ function displayFavorite(favoriteName) {
       var obj = {
         video: {
           value:
-            "<iframe title='YouTube video player' type='text/html' width='640' height='390' src='http://www.youtube.com/embed/" +
+            "<iframe title='YouTube video player' type='text/html' width='640' height='390' src='https://www.youtube.com/embed/" +
             videoId +
             "' frameborder='0' allowFullScreen></iframe>", //create the obj object, and we will get the videoId from the variable we just created above
         },
@@ -537,7 +535,12 @@ function displayFavorite(favoriteName) {
       console.log(obj.video.value)
       var favoriteVideo = document.createElement('p')
       favoriteVideo.innerHTML = obj.video.value
-      divOfChosen.appendChild(favoriteVideo) //! add divOfChosen as the parent element to attach the video to
+      favoriteList.appendChild(favoriteVideo)
+
+      // for (var j = 0; j<favoriteList.length; j++){
+      //   favoriteList[j].appendChild(favoriteVideo[j])
+      // }
+      
     })
 
 }
