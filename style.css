@@ -44,7 +44,7 @@
 } */
 
 /*Favorite btn*/
-.favorite-btn {
+#favorite-btn {
   width: 20%;
 }
 
@@ -52,8 +52,25 @@
 .home-btn{
   margin: 25px;
   width: 20%;
+  
 }
 
+/*Text formmating for cuisine header*/
+h2 {
+  font-family: "Dancing Script", cursive;
+  font-size: 40px; 
+}
+
+/*Image styling*/
+img {
+  border-radius: 15px;
+  margin-bottom: 3rem;
+}
+
+p {
+  color: white;
+  text-align:center;
+}
 
 /*Button look property*/
 button {
