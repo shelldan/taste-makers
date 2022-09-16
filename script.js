@@ -10,6 +10,7 @@ var homeBtn = document.createElement("button")
 homeBtn.textContent = "Home";
 var favoriteDiv = document.createElement('div')
 var favoriteList = document.createElement('button')
+var divOfChosen //!
 
 var page1Div = document.querySelector(".page-1"); //selecting DOM element
 
@@ -53,7 +54,7 @@ function page2handler(event) {
   page2Div.appendChild(italian); //parent append child
   page2Div.appendChild(homeBtn);
   homeBtn.addEventListener("click", refreshPage);
-  
+
 
   french.innerHTML = "French"; //assign innerHTML to button
   american.innerHTML = "American"; //assign innerHTML to button
@@ -143,16 +144,18 @@ function page4handler(id) {
   favoriteBtn.setAttribute("Id", "favorite-btn"); //sets favoriteBtn class to favorite-btn
   homeBtn.setAttribute("class", "home-btn"); //sets homeBtn class
   homeBtn.textContent = "Home";
+
+
+
   cuisineRecipe.setAttribute("class", "recipe");//sets recipe class to <p>
- 
-  
+
 
   mainDiv.appendChild(page4Div); // parent append child
   page4Div.appendChild(cuisineHeader); // parent append child
-  page4Div.appendChild(favoriteBtn); // appends favorite button to the header
+
   page4Div.appendChild(cuisineImg); // parent append child
   page4Div.appendChild(cuisineRecipe); // parent append child
-  page4Div.appendChild(homeBtn);
+
   homeBtn.addEventListener("click", refreshPage);
 
   var recipeInfoUrl =
@@ -241,6 +244,8 @@ function page4handler(id) {
 
   }
 
+  page4Div.appendChild(favoriteBtn); // appends favorite button to the header
+  page4Div.appendChild(homeBtn);
   // when favorite button clicked --> save name of the recipe to local storage 
   favoriteBtn.addEventListener("click", save)
 
@@ -366,10 +371,9 @@ function page7handler(id) {
 
   mainDiv.appendChild(page7Div); // parent append child
   page7Div.appendChild(dessertHeader); // parent append child
-  page7Div.appendChild(favoriteBtn); // appends favorite button to the header
   page7Div.appendChild(dessertImg); // parent append child
   page7Div.appendChild(dessertRecipe); // parent append child
-  page7Div.appendChild(homeBtn);
+
 
   var dessertRecipeInfoUrl =
     "https://api.spoonacular.com/recipes/" +
@@ -457,6 +461,9 @@ function page7handler(id) {
 
   }
 
+  page7Div.appendChild(favoriteBtn);
+  page7Div.appendChild(homeBtn);
+
   // when favorite button clicked --> save name of the recipe to local storage 
   favoriteBtn.addEventListener("click", save)
 
@@ -481,7 +488,10 @@ function display() {
       favoriteHome.appendChild(favoriteDiv)
       favoriteDiv.appendChild(favoriteList)
 
-      favoriteList.addEventListener('click', function () {
+      favoriteList.addEventListener('click', function (event) {
+        var chosen = event.target;
+        divOfChosen = chosen.parentElement; //! This is the empty div for the video
+        console.log(divOfChosen);
         console.log(this.innerText)
         var favoriteName = this.innerText
         displayFavorite(favoriteName)
@@ -527,7 +537,7 @@ function displayFavorite(favoriteName) {
       console.log(obj.video.value)
       var favoriteVideo = document.createElement('p')
       favoriteVideo.innerHTML = obj.video.value
-      favoriteList.appendChild(favoriteVideo)
+      divOfChosen.appendChild(favoriteVideo) //! add divOfChosen as the parent element to attach the video to
     })
 
 }
