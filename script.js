@@ -147,6 +147,9 @@ function page4handler(id) {
 
 
 
+  cuisineRecipe.setAttribute("class", "recipe");//sets recipe class to <p>
+
+
   mainDiv.appendChild(page4Div); // parent append child
   page4Div.appendChild(cuisineHeader); // parent append child
 
@@ -361,8 +364,10 @@ function page7handler(id) {
   var dessertVideo = document.createElement("div"); //create element
   var favoriteBtn = document.createElement("button"); //creates the favorite ❤ button
   favoriteBtn.textContent = "Favorite ❤"; //sets favoriteBtn text to 'Favorite ❤'
-  favoriteBtn.setAttribute("class", "favorite-btn"); //sets favoriteBtn class to favorite-btn
+  favoriteBtn.setAttribute("Id", "favorite-btn"); //sets favoriteBtn class to favorite-btn
+  homeBtn.setAttribute("class", "home-btn");//sets home button
   homeBtn.textContent = "Home"
+  dessertRecipe.setAttribute("class", "recipe");//sets recipe class
 
   mainDiv.appendChild(page7Div); // parent append child
   page7Div.appendChild(dessertHeader); // parent append child
