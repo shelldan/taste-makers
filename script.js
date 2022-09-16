@@ -10,6 +10,7 @@ var homeBtn = document.createElement("button")
 homeBtn.textContent = "Home";
 var favoriteDiv = document.createElement('div')
 var favoriteList = document.createElement('button')
+var divOfChosen //!
 
 var page1Div = document.querySelector(".page-1"); //selecting DOM element
 
@@ -472,7 +473,10 @@ function display() {
       favoriteHome.appendChild(favoriteDiv)
       favoriteDiv.appendChild(favoriteList)
 
-      favoriteList.addEventListener('click', function () {
+      favoriteList.addEventListener('click', function (event) {
+        var chosen = event.target;
+        divOfChosen = chosen.parentElement; //! This is the empty div for the video
+        console.log(divOfChosen);
         console.log(this.innerText)
         var favoriteName = this.innerText
         displayFavorite(favoriteName)
@@ -518,7 +522,7 @@ function displayFavorite(favoriteName) {
       console.log(obj.video.value)
       var favoriteVideo = document.createElement('p')
       favoriteVideo.innerHTML = obj.video.value
-      favoriteList.appendChild(favoriteVideo)
+      divOfChosen.appendChild(favoriteVideo) //! add divOfChosen as the parent element to attach the video to
     })
 
 }
