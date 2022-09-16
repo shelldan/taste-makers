@@ -23,7 +23,7 @@ var clearBtn = document.getElementById("clear")
 
 var frenchStyle = document.getElementById("french"); //selecting DOM element
 
-var spoonApiKey = "69b056115d964a63a39bfc1d5040e02e"; //key
+var spoonApiKey = "1f888050f2a84b67a81a86ab40b3fe81"; //key
 var youTubeApiKey = "AIzaSyAs5UNLJXXYe-G9ztXo-qPDZbI8Z0oxb7w"; //youtube API key
 
 var favoriteArray = []; //to hold array for favorite recipe
@@ -45,6 +45,7 @@ function page2handler(event) {
   var american = document.createElement("button"); //create DOM element (button)
   var german = document.createElement("button"); //create DOM element (button)
   var italian = document.createElement("button"); //create DOM element (button)
+  var backBtn = document.createElement("button"); //create DOM element (button)
 
   mainDiv.appendChild(page2Div); //parent append child
   page2Div.appendChild(french); //parent append child
@@ -53,6 +54,7 @@ function page2handler(event) {
   page2Div.appendChild(italian); //parent append child
   page2Div.appendChild(homeBtn);
   homeBtn.addEventListener("click", refreshPage);
+
 
   french.innerHTML = "French"; //assign innerHTML to button
   american.innerHTML = "American"; //assign innerHTML to button
@@ -137,16 +139,20 @@ function page4handler(id) {
   var cuisineRecipe = document.createElement("p"); //create element
   var cuisineVideo = document.createElement("div"); //create element
   var favoriteBtn = document.createElement("button"); //creates the favorite ❤ button
+  var backBtn = document.createElement("button"); //create DOM element (button)
   favoriteBtn.textContent = "Favorite ❤"; //sets favoriteBtn text to 'Favorite ❤'
-  favoriteBtn.setAttribute("class", "favorite-btn"); //sets favoriteBtn class to favorite-btn
+  favoriteBtn.setAttribute("Id", "favorite-btn"); //sets favoriteBtn class to favorite-btn
+  homeBtn.setAttribute("class", "home-btn"); //sets homeBtn class
   homeBtn.textContent = "Home";
+
+
 
   mainDiv.appendChild(page4Div); // parent append child
   page4Div.appendChild(cuisineHeader); // parent append child
-  page4Div.appendChild(favoriteBtn); // appends favorite button to the header
+
   page4Div.appendChild(cuisineImg); // parent append child
   page4Div.appendChild(cuisineRecipe); // parent append child
-  page4Div.appendChild(homeBtn);
+
   homeBtn.addEventListener("click", refreshPage);
 
   var recipeInfoUrl =
@@ -235,6 +241,8 @@ function page4handler(id) {
 
   }
 
+  page4Div.appendChild(favoriteBtn); // appends favorite button to the header
+  page4Div.appendChild(homeBtn);
   // when favorite button clicked --> save name of the recipe to local storage 
   favoriteBtn.addEventListener("click", save)
 
@@ -358,10 +366,9 @@ function page7handler(id) {
 
   mainDiv.appendChild(page7Div); // parent append child
   page7Div.appendChild(dessertHeader); // parent append child
-  page7Div.appendChild(favoriteBtn); // appends favorite button to the header
   page7Div.appendChild(dessertImg); // parent append child
   page7Div.appendChild(dessertRecipe); // parent append child
-  page7Div.appendChild(homeBtn);
+
 
   var dessertRecipeInfoUrl =
     "https://api.spoonacular.com/recipes/" +
@@ -448,6 +455,9 @@ function page7handler(id) {
     localStorage.setItem('favorite', JSON.stringify(favoriteArray))
 
   }
+
+  page7Div.appendChild(favoriteBtn);
+  page7Div.appendChild(homeBtn);
 
   // when favorite button clicked --> save name of the recipe to local storage 
   favoriteBtn.addEventListener("click", save)
