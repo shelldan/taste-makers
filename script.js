@@ -23,7 +23,7 @@ var clearBtn = document.getElementById("clear")
 var frenchStyle = document.getElementById("french"); //selecting DOM element
 
 var spoonApiKey = "69b056115d964a63a39bfc1d5040e02e"; //key
-var youTubeApiKey = "AIzaSyDgew_X5hJZ7FyXVTt6ZcrlM2_MMbRyUTE"; //youtube API key
+var youTubeApiKey = "AIzaSyAs5UNLJXXYe-G9ztXo-qPDZbI8Z0oxb7w"; //youtube API key
 
 var favoriteArray = []; //to hold array for favorite recipe
 
@@ -466,8 +466,8 @@ function display() {
 
     //iterate through the favoriteItem 
     for (var i = 0; i < favoriteArray.length; i++) {
-      // var favoriteDiv = document.createElement('div')
-      // var favoriteList = document.createElement('button')
+      var favoriteDiv = document.createElement('div')
+      var favoriteList = document.createElement('button')
       favoriteList.textContent = favoriteArray[i]
       favoriteHome.appendChild(favoriteDiv)
       favoriteDiv.appendChild(favoriteList)
