@@ -7,6 +7,7 @@ var page5Div = document.createElement("div"); //create dynamic div html element
 var page6Div = document.createElement("div"); //create dynamic div html element
 var page7Div = document.createElement("div"); //create dynamic div html element
 var homeBtn = document.createElement("button")
+homeBtn.textContent = "Home";
 var favoriteDiv = document.createElement('div')
 var favoriteList = document.createElement('button')
 
@@ -29,7 +30,7 @@ var favoriteArray = []; //to hold array for favorite recipe
 //var recipeInfoUrl = 'https://api.spoonacular.com/recipes/' + id +'/information'
 
 //refresh the page
-function refreshPage(){
+function refreshPage() {
   window.location.reload()
 }
 
@@ -49,6 +50,8 @@ function page2handler(event) {
   page2Div.appendChild(american); //parent append child
   page2Div.appendChild(german); //parent append child¡
   page2Div.appendChild(italian); //parent append child
+  page2Div.appendChild(homeBtn);
+  homeBtn.addEventListener("click", refreshPage);
 
   french.innerHTML = "French"; //assign innerHTML to button
   american.innerHTML = "American"; //assign innerHTML to button
@@ -112,6 +115,7 @@ function page3handler(event) {
           page3Div.appendChild(cuisineHeader); //parent append child
           page3Div.appendChild(cuisineImg); //parent append child
           page3Div.appendChild(cuisineRecipe); //parent append child
+          page3Div.appendChild(homeBtn); //!!!
         }
 
         // cuisineHeader.addEventListener('click',page4handler)
@@ -134,7 +138,7 @@ function page4handler(id) {
   var favoriteBtn = document.createElement("button"); //creates the favorite ❤ button
   favoriteBtn.textContent = "Favorite ❤"; //sets favoriteBtn text to 'Favorite ❤'
   favoriteBtn.setAttribute("class", "favorite-btn"); //sets favoriteBtn class to favorite-btn
-  homeBtn.textContent = "Home"
+  homeBtn.textContent = "Home";
 
   mainDiv.appendChild(page4Div); // parent append child
   page4Div.appendChild(cuisineHeader); // parent append child
@@ -142,6 +146,7 @@ function page4handler(id) {
   page4Div.appendChild(cuisineImg); // parent append child
   page4Div.appendChild(cuisineRecipe); // parent append child
   page4Div.appendChild(homeBtn);
+  homeBtn.addEventListener("click", refreshPage);
 
   var recipeInfoUrl =
     "https://api.spoonacular.com/recipes/" +
@@ -151,7 +156,7 @@ function page4handler(id) {
     spoonApiKey; //spoonacular API
 
   console.log(recipeInfoUrl)
-  
+
   //fetch request for spoonacular API
   fetch(recipeInfoUrl)
     .then(function (response) {
@@ -198,41 +203,41 @@ function page4handler(id) {
     });
 
   //save function to store the favorite to localStorage 
-  function save(){
+  function save() {
     //get favorite from the header, single entry
-    var recipeFavorite = cuisineHeader.textContent 
+    var recipeFavorite = cuisineHeader.textContent
 
     //if there is nothing saved at the start then save an empty array
-    if(localStorage.getItem('favorite')== null){
-      localStorage.setItem('favorite','[]')
+    if (localStorage.getItem('favorite') == null) {
+      localStorage.setItem('favorite', '[]')
     }
 
     //get old data and slap it to the new data
     favoriteArray = JSON.parse(localStorage.getItem('favorite'))
 
-    if(!favoriteArray){
+    if (!favoriteArray) {
       favoriteArray = [recipeFavorite]
     }
 
-    var favoriteExist = favoriteArray.findIndex(function(element){
+    var favoriteExist = favoriteArray.findIndex(function (element) {
       return element === recipeFavorite
     })
 
     console.log(favoriteExist)
-    if(favoriteExist === -1){
-    
-    favoriteArray.push(recipeFavorite)
+    if (favoriteExist === -1) {
+
+      favoriteArray.push(recipeFavorite)
     }
 
     //save the old + new data to local storage
-    localStorage.setItem('favorite',JSON.stringify(favoriteArray))
+    localStorage.setItem('favorite', JSON.stringify(favoriteArray))
 
   }
 
   // when favorite button clicked --> save name of the recipe to local storage 
-  favoriteBtn.addEventListener("click",save)
+  favoriteBtn.addEventListener("click", save)
 
-  homeBtn.addEventListener("click",refreshPage)
+  homeBtn.addEventListener("click", refreshPage)
 }
 
 
@@ -252,6 +257,8 @@ function page5handler(event) {
   page5Div.appendChild(cakes); //parent append child
   page5Div.appendChild(cookies); //parent append child
   page5Div.appendChild(pies); //parent append child
+  page5Div.appendChild(homeBtn);
+  homeBtn.addEventListener("click", refreshPage);
 
   cakes.innerHTML = "Cakes"; //assign innerHTML to button
   cookies.innerHTML = "Cookies"; //assign innerHTML to button
@@ -260,6 +267,7 @@ function page5handler(event) {
   console.log(event.target.textContent); //could remove it; used to check the button the user clicks
 
   $("button").click(page6handler); // once the user click on any button, it will call page3handler function
+  homeBtn.addEventListener("click", refreshPage); //home button
 }
 
 //the function is handling the page6
@@ -317,12 +325,15 @@ function page6handler(event) {
           page6Div.appendChild(dessertHeader); //parent append child
           page6Div.appendChild(dessertImg); //parent append child
           page6Div.appendChild(dessertRecipe); //parent append child
+          page6Div.appendChild(homeBtn);
+          homeBtn.addEventListener("click", refreshPage);
         }
 
         // cuisineHeader.addEventListener('click',page4handler)
       });
   }
   getRecipeName(); //call the getRecipeName function
+  homeBtn.addEventListener("click", refreshPage); //add home button
 }
 
 //the function is handling the page7
@@ -342,7 +353,7 @@ function page7handler(id) {
   var favoriteBtn = document.createElement("button"); //creates the favorite ❤ button
   favoriteBtn.textContent = "Favorite ❤"; //sets favoriteBtn text to 'Favorite ❤'
   favoriteBtn.setAttribute("class", "favorite-btn"); //sets favoriteBtn class to favorite-btn
-  homeBtn.textContent ="Home"
+  homeBtn.textContent = "Home"
 
   mainDiv.appendChild(page7Div); // parent append child
   page7Div.appendChild(dessertHeader); // parent append child
@@ -350,7 +361,6 @@ function page7handler(id) {
   page7Div.appendChild(dessertImg); // parent append child
   page7Div.appendChild(dessertRecipe); // parent append child
   page7Div.appendChild(homeBtn);
-
 
   var dessertRecipeInfoUrl =
     "https://api.spoonacular.com/recipes/" +
@@ -403,65 +413,66 @@ function page7handler(id) {
           dessertVideo.innerHTML = obj.video.value; // add the obj.video.value to cusineVideo
           page7Div.appendChild(dessertVideo); //parent append child
         });
+      homeBtn.addEventListener("click", refreshPage);
     });
 
-    //save function to store the favorite to localStorage 
-    function save(){
-      //get favorite from the header, single entry
-      var recipeFavorite = dessertHeader.textContent 
-  
-      //if there is nothing saved at the start then save an empty array
-      if(localStorage.getItem('favorite')== null){
-        localStorage.setItem('favorite','[]')
-      }
-  
-      //get old data and slap it to the new data
-      favoriteArray = JSON.parse(localStorage.getItem('favorite'))
-  
-      if(!favoriteArray){
-        favoriteArray = [recipeFavorite]
-      }
-  
-      var favoriteExist = favoriteArray.findIndex(function(element){
-        return element === recipeFavorite
-      })
-  
-      console.log(favoriteExist)
-      if(favoriteExist === -1){
-      
-      favoriteArray.push(recipeFavorite)
-      }
-  
-      //save the old + new data to local storage
-      localStorage.setItem('favorite',JSON.stringify(favoriteArray))
-  
+  //save function to store the favorite to localStorage 
+  function save() {
+    //get favorite from the header, single entry
+    var recipeFavorite = dessertHeader.textContent
+
+    //if there is nothing saved at the start then save an empty array
+    if (localStorage.getItem('favorite') == null) {
+      localStorage.setItem('favorite', '[]')
     }
 
-  // when favorite button clicked --> save name of the recipe to local storage 
-  favoriteBtn.addEventListener("click",save)
+    //get old data and slap it to the new data
+    favoriteArray = JSON.parse(localStorage.getItem('favorite'))
 
-  homeBtn.addEventListener("click",refreshPage)
+    if (!favoriteArray) {
+      favoriteArray = [recipeFavorite]
+    }
+
+    var favoriteExist = favoriteArray.findIndex(function (element) {
+      return element === recipeFavorite
+    })
+
+    console.log(favoriteExist)
+    if (favoriteExist === -1) {
+
+      favoriteArray.push(recipeFavorite)
+    }
+
+    //save the old + new data to local storage
+    localStorage.setItem('favorite', JSON.stringify(favoriteArray))
+
+  }
+
+  // when favorite button clicked --> save name of the recipe to local storage 
+  favoriteBtn.addEventListener("click", save)
+
+  homeBtn.addEventListener("click", refreshPage)
 
 }
 
 //how to remove the duplicate value? 
-function display(){
+function display() {
   //if there is indeed data then continue 
-  if(localStorage.getItem('favorite') != null){
+  if (localStorage.getItem('favorite') != null) {
 
     //store the localStorage.getItem('favorite') to a variable favoriteArray; the || [] replaces possible null from localStorage with empty array
     favoriteArray = JSON.parse(localStorage.getItem('favorite')) || [];
     console.log(favoriteArray)
-    
+
     //iterate through the favoriteItem 
-    for (var i = 0 ; i<favoriteArray.length; i++){
+    for (var i = 0; i < favoriteArray.length; i++) {
       // var favoriteDiv = document.createElement('div')
       // var favoriteList = document.createElement('button')
       favoriteList.textContent = favoriteArray[i]
       favoriteHome.appendChild(favoriteDiv)
       favoriteDiv.appendChild(favoriteList)
 
-      favoriteList.addEventListener('click',function(){
+      favoriteList.addEventListener('click', function () {
         console.log(this.innerText)
         var favoriteName = this.innerText
         displayFavorite(favoriteName)
@@ -472,43 +483,43 @@ function display(){
 
 
 //displayFavorite Recipe instruction and video 
-function displayFavorite(favoriteName){
+function displayFavorite(favoriteName) {
   console.log(favoriteName)
   // var favoriteDiv = document.createElement('div')
   // favoriteList = document.createElement('button')
   // favoriteHome.appendChild(favoriteDiv)
   // favoriteDiv.appendChild(favoriteList)
-  
+
 
   var youTubeUrl =
-  "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=" +
-  favoriteName +
-  "&key=" +
-  youTubeApiKey;
+    "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=" +
+    favoriteName +
+    "&key=" +
+    youTubeApiKey;
 
   console.log(youTubeUrl)
 
   fetch(youTubeUrl)
-  .then(function(response){
-    return response.json()
-  })
-  .then(function(data){
-    console.log(data)
-    console.log(data.items[0].id.videoId)
-    var videoId = data.items[0].id.videoId; //create a variable to store the youtube videoId and we will use this inside the obj.video.value
-    var obj = {
-      video: {
-        value:
-          "<iframe title='YouTube video player' type='text/html' width='640' height='390' src='http://www.youtube.com/embed/" +
-          videoId +
-          "' frameborder='0' allowFullScreen></iframe>", //create the obj object, and we will get the videoId from the variable we just created above
-      },
-    };
-    console.log(obj.video.value)
-    var favoriteVideo = document.createElement('p')
-    favoriteVideo.innerHTML = obj.video.value
-    favoriteList.appendChild(favoriteVideo)
-  })
+    .then(function (response) {
+      return response.json()
+    })
+    .then(function (data) {
+      console.log(data)
+      console.log(data.items[0].id.videoId)
+      var videoId = data.items[0].id.videoId; //create a variable to store the youtube videoId and we will use this inside the obj.video.value
+      var obj = {
+        video: {
+          value:
+            "<iframe title='YouTube video player' type='text/html' width='640' height='390' src='http://www.youtube.com/embed/" +
+            videoId +
+            "' frameborder='0' allowFullScreen></iframe>", //create the obj object, and we will get the videoId from the variable we just created above
+        },
+      };
+      console.log(obj.video.value)
+      var favoriteVideo = document.createElement('p')
+      favoriteVideo.innerHTML = obj.video.value
+      favoriteList.appendChild(favoriteVideo)
+    })
 
 }
 
