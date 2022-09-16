@@ -36,15 +36,8 @@
   align-items: center;
 }
 
-/*button.page-2 is more specific than button*/
-/* button.page-2:hover {
-  background-color: rgba(255, 255, 255, 0.5); */
-  /* background-image: url(./assets/Images/Dark_chalkboard.jpeg);
-
-} */
-
 /*Favorite btn*/
-.favorite-btn {
+#favorite-btn {
   width: 20%;
 }
 
@@ -52,8 +45,28 @@
 .home-btn{
   margin: 25px;
   width: 20%;
+  
 }
 
+/*Text formmating for cuisine header*/
+h2 {
+  font-family: "Dancing Script", cursive;
+  font-size: 40px; 
+}
+
+/*Image styling*/
+img {
+  border-radius: 15px;
+  margin-bottom: 3rem;
+}
+
+/*recipe*/
+.recipe {
+  color: white;
+  text-align:center;
+  padding: 25px 100px;
+  font-size: 24px;
+}
 
 /*Button look property*/
 button {
