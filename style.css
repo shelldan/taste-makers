@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
   color:white;
+  text-align: center;
 }
 
 #header-image {
@@ -34,6 +35,14 @@
   align-content: space-around;
   align-items: center;
 }
+
+/*button.page-2 is more specific than button*/
+/* button.page-2:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+  background-image: url(./assets/Images/Dark_chalkboard.jpeg);
+  opacity: 0.2;
+  background-blend-mode: 0.3;
+} */
 
 /*Button look property*/
 button {
