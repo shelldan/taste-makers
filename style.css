@@ -29,6 +29,7 @@
   --d: -101%;
 }
 
+/* Centers Page 2 menu */
 .page-2 {
   display: flex;
   flex-direction: column;
@@ -36,22 +37,44 @@
   align-items: center;
 }
 
+/* Hover effect for page 2 btns */
+.page2btn:hover{
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
 /*Favorite btn*/
 #favorite-btn {
   width: 20%;
+}
+
+/* Hover effect for favorite btn */
+#favorite-btn:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+ 
 }
 
 /*Home button*/
 .home-btn{
   margin: 25px;
   width: 20%;
-  
+}
+
+/* Hover effect for home button */
+.home-btn:hover{
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 /*Text formmating for cuisine header*/
 h2 {
   font-family: "Dancing Script", cursive;
   font-size: 40px; 
+}
+
+/* Highlighting effect for food headers */
+.headereffect:hover{
+  background-color: rgb(0, 0, 0, 0.5);
+  width: 50%;
+  margin: 0 25%;
 }
 
 /*Image styling*/
@@ -75,7 +98,7 @@ button {
   font-size: 50px;
   border-radius: 8px;
   border: 10px;
-  background-image: url(./assets/Images/Dark_chalkboard.jpeg);
+  background-color: rgb(0, 0, 0, 0.5);
   color: white;
   background-size: 100%;
   width: 65%;
@@ -84,8 +107,8 @@ button {
 
 /*Hover effect for the homepage buttons*/
 button:hover {
-  background-color: rgb(0, 0, 0, 0.5);
-  background-blend-mode: 0.3;
+  background-color: rgba(0, 0, 0, 0.5);
+  
 }
 
 #result {
