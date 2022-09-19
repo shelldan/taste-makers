@@ -46,6 +46,10 @@ function page2handler(event) {
   var german = document.createElement("button"); //create DOM element (button)
   var italian = document.createElement("button"); //create DOM element (button)
   var backBtn = document.createElement("button"); //create DOM element (button)
+  french.setAttribute("class", "page2btn"); //sets Page 2 Btn class
+  american.setAttribute("class", "page2btn"); //sets Page 2 Btn class
+  german.setAttribute("class", "page2btn"); //sets Page 2 Btn class
+  italian.setAttribute("class", "page2btn"); //sets Page 2 Btn class
 
   mainDiv.appendChild(page2Div); //parent append child
   page2Div.appendChild(french); //parent append child
@@ -54,6 +58,8 @@ function page2handler(event) {
   page2Div.appendChild(italian); //parent append child
   page2Div.appendChild(homeBtn);
   homeBtn.addEventListener("click", refreshPage);
+  homeBtn.setAttribute("class", "page2btn"); //sets Page 2 Btn class
+
 
 
   french.innerHTML = "French"; //assign innerHTML to button
@@ -100,6 +106,8 @@ function page3handler(event) {
           var cuisineHeader = document.createElement("h2"); //create new element
           var cuisineImg = document.createElement("img"); //create new element
           var cuisineRecipe = document.createElement("p"); // create new element
+          cuisineHeader.setAttribute("class", "headereffect"); //sets headereffect class
+          
 
           cuisineHeader.textContent = recipeName.results[i].title; //iterate through the 10 items
           cuisineImg.src = recipeName.results[i].image; //iterate through the 10 items
