@@ -24,7 +24,7 @@ var clearBtn = document.getElementById("clear")
 var frenchStyle = document.getElementById("french"); //selecting DOM element
 
 var spoonApiKey = "1f888050f2a84b67a81a86ab40b3fe81"; //key
-var youTubeApiKey = "AIzaSyAs5UNLJXXYe-G9ztXo-qPDZbI8Z0oxb7w"; //youtube API key
+var youTubeApiKey = "AIzaSyA2Itu1VDeq4gOr5dBotNVqVJRLVOxFRiI"; //youtube API key
 
 var favoriteArray = []; //to hold array for favorite recipe
 
