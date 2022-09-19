@@ -1,45 +1,29 @@
 # taste_makers
-Recipe finder app with UTAustin Bootcamp
+Recipe finder app with UTAustin Bootcamp 
 
 ## User Stories
+ would like to choose between protein  and cooking style options, and based on these options be given a video recipe. The User can also save a list of favorite recipes to reference at a later date. The User will have a seamless experience getting data from the Spoonacular and YouTube APIs.
 
-As a hungry person
-I WANT to enter the main course I would like to eat and get back recipe options
-SO THAT I can plan accordingly
+## When user clicks cuisine/dessert
+* Will be presented with four cuisine styles: French, American, German, and Italian
+* Will be presented with three dessert sytles: cookies, cakes, and pies
+* Each style containes 10 different recipes
+* Each recipe will provide a video to go along with it
+* When favorite button clicked, recipe will be saved to homepage
+* When home button clicked, it will always take you back to the homepage 
 
-## Acceptance Criteria 
+## Live Application
+https://dcmccormick.github.io/taste_makers/
 
-1 When homepage loads User have a choice of 4 protein options 
-
+## Acceptance Criteria
+1 When homepage loads User have a choice of 4 protein options
 2 When homepage loads User has a choice of style of cuisine
-
 3 When homepage loads User has a choice of desert options
-
 4 When 'Go/Make Recipe' button is clicked User is presented with recipe multiple options.
 
-## Google Doc
-* Group Google Doc: https://docs.google.com/document/d/1P1UyIhpSrdy0Xtx6lIobXjCEwrd-sB5dYowq5JX9yfE/edit 
-
-## API 
-
+## API
 * Spoonacular: https://spoonacular.com/food-api
+* Youtube: https://developers.google.com/youtube/v3
 
-## WireFrame
-
-## David's suggestion
-API Suggestions:
-1. https://coding-boot-camp.github.io/full-stack/apis/api-resources
-2. https://www.programmableweb.com/
-3. https://rapidapi.com/
-
-CSS Library Suggestions: 
-https://github.com/troxler/awesome-css-frameworks 
-- For the first project I would recommend staying within the General purpose category. ^^^ (eg - Foundation) 
-
-Project Group Documentation:
-https://docs.google.com/document/d/1uUa6Y1yDHmhtzpeBtc_c7EF6SnBKLbKomoGFOTainTs/edit
-
-^^^ Every group needs to finish filling in their section. 
-
-## David shared Example of group 1 project: 
-* https://frostquill.github.io/beer-advisor/ 
+## Screenshot of website
+![](assets/Images/Screenshot_homepage.png)
