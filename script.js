@@ -23,8 +23,8 @@ var clearBtn = document.getElementById("clear")
 
 var frenchStyle = document.getElementById("french"); //selecting DOM element
 
-var spoonApiKey = "1f888050f2a84b67a81a86ab40b3fe81"; //key
-var youTubeApiKey = "AIzaSyA2Itu1VDeq4gOr5dBotNVqVJRLVOxFRiI"; //youtube API key
+var spoonApiKey = "185e0d8912b7436abe73d61ec0df8d3c"; //key
+var youTubeApiKey = "AIzaSyACILGJ0q_INibtI19CGtziAvBtf0O-d_I"; //youtube API key
 
 var favoriteArray = []; //to hold array for favorite recipe
 
