@@ -4,14 +4,6 @@ Recipe finder app with UTAustin Bootcamp
 ## User Stories
  would like to choose between protein  and cooking style options, and based on these options be given a video recipe. The User can also save a list of favorite recipes to reference at a later date. The User will have a seamless experience getting data from the Spoonacular and YouTube APIs.
 
-## When user clicks cuisine/dessert
-* Will be presented with four cuisine styles: French, American, German, and Italian
-* Will be presented with three dessert sytles: cookies, cakes, and pies
-* Each style containes 10 different recipes
-* Each recipe will provide a video to go along with it
-* When favorite button clicked, recipe will be saved to homepage
-* When home button clicked, it will always take you back to the homepage 
-
 ## Live Application
 https://shelldan.github.io/taste_makers/
 
@@ -27,3 +19,30 @@ https://shelldan.github.io/taste_makers/
 
 ## Screenshot of website
 ![](assets/Images/Screenshot_homepage.png)
+
+* When user clicks cuisine, the user will be presented with four cuisine styles: French, American, German, and Italian 
+
+![](assets/Images/page_2.png)
+
+* When user clicks one of the styles, the user will be presented with 10 different recipes
+
+![](assets/Images/page_3.png)
+
+* When user clicks one of the recipes, the user will be presented with a descriptive recipe information and a youtube video to go along with it 
+
+![](assets/Images/Page_4.png)
+
+* When user clicks the favorite button, the recipe will be saved to homepage; When user clicks home button, it will always take you back to the homepage! 
+
+![](assets/Images/page_1_favorite.png)
+
+* Similarly, when user clicks the dessert button, it will have the similar layout as cuisine!
+![](assets/Images/page_5.png) 
+
+## Portfolio 
+* The first project is added to my portfolio, by clicking 'Taste Maker' you will be redirect the my first project! 
+
+## Live Portfolio
+https://shelldan.github.io/Portfolio/
+
+![](assets/Images/portfolio_page_1.png)
