@@ -5,7 +5,7 @@ Recipe finder app with UTAustin Bootcamp
  would like to choose between protein  and cooking style options, and based on these options be given a video recipe. The User can also save a list of favorite recipes to reference at a later date. The User will have a seamless experience getting data from the Spoonacular and YouTube APIs.
 
 ## Live Application
-https://shelldan.github.io/taste_makers/
+https://shelldan.github.io/taste-makers/
 
 ## Acceptance Criteria
 1 When homepage loads User have a choice of 4 protein options
@@ -43,6 +43,6 @@ https://shelldan.github.io/taste_makers/
 * The first project is added to my portfolio, by clicking 'Taste Maker' you will be redirect the my first project! 
 
 ## Live Portfolio
-https://shelldan.github.io/Portfolio/
+https://shelldan.github.io/portfolio/
 
 ![](assets/Images/portfolio_page_1.png)
